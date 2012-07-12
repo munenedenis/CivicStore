@@ -1,0 +1,134 @@
+/*
+THEME NAME: civicstore
+THEME URI: http://themeshaper.com/thematic-for-wordpress/
+DESCRIPTION: The ultimate in SEO-ready themes, Thematic is a highly extensible, WordPress Theme Framework featuring 13 widget-ready areas, drop-down menus, grid-based layout samples, plugin integration, shortcodes for your footer, &amp; a whole lot more. Perfect for any blog and <strong><em>the</em></strong> starting point for theme development.
+VERSION: 0.9
+AUTHOR: code4kenya
+AUTHOR URI: http://themeshaper.com/
+TAGS: white, three-columns, two-columns, fixed-width, theme-options, left-sidebar, right-sidebar, threaded-comments, sticky-post, microformats
+.
+Thematic is copyright Ian Stewart http://themeshaper.com/
+This work, like WordPress, is released under GNU General Public License, version 2 (GPL).
+http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+.
+*/
+
+/* Reset browser defaults */
+@import url('library/styles/reset.css');
+
+/* Apply basic typography styles */
+@import url('library/styles/typography.css');
+
+/* Apply a basic layout */
+@import url('library/layouts/2c-r-fixed.css');
+
+/* Apply basic image styles */
+@import url('library/styles/images.css');
+
+/* Apply default theme styles and colors */
+@import url('library/styles/default.css');
+
+/* Prepare theme for plugins */
+@import url('library/styles/plugins.css');
+
+@import url('css/bootstrap.min.css');
+
+html{
+	background:url('../img/tile_bg.jpg') #b0b0b0;
+	position:relative;
+}
+
+body{
+	background:url('../img/page_bg_center.jpg') no-repeat center center;
+	min-height: 740px;
+	margin: 0 250px 0;
+    padding: 20px 0 0;
+	font:14px/1.3 'Segoe UI',Arial, sans-serif;
+}
+
+/* -------------------------------------------------------------- 
+   
+   Default styles for Images
+   
+   I've duplicated these styles here from images.css in
+   order to get Thematic through the auto-checker at the
+   official WordPress Themes directory.
+   
+   When the directory can hunt though css files linked
+   through @import the styles below will no longer be
+   neccesary and will be removed.
+   
+   Cheers. --Ian Stewart
+  
+-------------------------------------------------------------- */   
+
+
+.entry-content img {
+    margin: 0 0 18px 0;
+    max-width:100%;
+}
+.alignleft,
+img.alignleft {
+	float: left;
+    margin-right:20px;
+}
+.alignright,
+img.alignright {
+	display: block;
+	float: right;
+    margin-left:20px;
+}
+.aligncenter,
+img.aligncenter {
+	margin-left:auto;
+	margin-right:auto;
+	display: block;
+	clear: both;
+}
+.wp-caption {
+	text-align: center;
+	margin-bottom:18px;
+}
+.wp-caption img {
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+}
+.wp-caption p.wp-caption-text {
+	margin: 0;
+	padding:5px;
+}
+.gallery img {
+    margin:0;
+}
+.wp-smiley { /* Prevent the smileys from breaking line-height */
+	max-height:12px;
+	margin:0 !important;
+}
+
+
+/* main banner style */
+
+.category {
+    width: 200px;
+	float:left;
+	margin: 0 20px 0;
+}
+.hero-unit {
+	width: 500px;
+	float:left;
+	margin: 0 20px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
