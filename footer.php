@@ -1,27 +1,20 @@
-<?php
-global $options;
-foreach ($options as $value) {
-    if (get_settings( $value['id'] ) === FALSE) { $$value['id'] = $value['std']; }
-    else { $$value['id'] = get_settings( $value['id'] ); }
-    }
-?>
-    </div><!-- #main -->
-    
-<?php thematic_abovefooter(); ?>    
+<footer>
+        <p>&copy; Company 2012</p>
+      </footer>
 
-	<div id="footer">
-        <?php get_sidebar('subsidiary'); ?>
-        <div id="siteinfo">        
-    		<?php /* footer text set in theme options */ echo do_shortcode(__(stripslashes(thematic_footertext($thm_footertext)), 'thematic')); ?>
-		</div><!-- #siteinfo -->
-	</div><!-- #footer -->
-	
-<?php thematic_belowfooter(); ?>  
+    </div> <!-- /container -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
 
-</div><!-- #wrapper .hfeed -->
+<script src="js/libs/bootstrap/bootstrap.min.js"></script>
 
-<?php wp_footer() ?>
+<script src="js/script.js"></script>
+<script>
+	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
 
-<?php thematic_after(); ?>
 </body>
 </html>
