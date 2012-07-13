@@ -1,9 +1,21 @@
 <?php get_header(); ?>
       <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="category">
-	  <h2> Select category </h2>
-	  <div class="hero-unit">
-        <h1>Hello, world!</h1>
+      	  <div class="hero-unit">
+	
+	
+	  <div id="coin-slider">
+    <a href="#" target="_blank"><img src='img/01.jpg' ><span>image1</span></a>
+    <a href="#" target="_blank"><img src='img/02.jpg' ><span>image2</span></a>
+	
+	<script type="text/javascript">
+    $(document).ready(function() {
+        $('#coin-slider').coinslider();
+    });
+</script>
+
+		</div>
+
+	    <h1>Civic Store</h1>
         <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
         <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
       </div>
