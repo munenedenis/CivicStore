@@ -1,29 +1,31 @@
-<?php get_header() ?>
+<?php
+/**
+ * The template for displaying all pages.
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site will use a
+ * different template.
+ *
+ * @package WordPress
+ * @subpackage Twenty_Eleven
+ * @since Twenty Eleven 1.0
+ */
 
-	<div id="container">
-		<div id="content">
+get_header(); ?>
 
-<?php get_sidebar('page-top') ?>
+		<div id="primary">
+			<div id="content" role="main">
 
-<?php the_post() ?>
-			<div id="post-<?php the_ID(); ?>" class="<?php thematic_post_class() ?>">
-    			<?php thematic_postheader(); ?>
-				<div class="entry-content">
-<?php the_content() ?>
+				<?php while ( have_posts() ) : the_post(); ?>
 
-<?php wp_link_pages("\t\t\t\t\t<div class='page-link'>".__('Pages: ', 'thematic'), "</div>\n", 'number'); ?>
+					<?php get_template_part( 'content', 'page' ); ?>
 
-<?php edit_post_link(__('Edit', 'thematic'),'<span class="edit-link">','</span>') ?>
+					<?php comments_template( '', true ); ?>
 
-				</div>
-			</div><!-- .post -->
+				<?php endwhile; // end of the loop. ?>
 
-<?php if ( get_post_custom_values('comments') ) comments_template('', true) // Add a key+value of "comments" to enable comments on this page ?>
+			</div><!-- #content -->
+		</div><!-- #primary -->
 
-<?php get_sidebar('page-bottom') ?>
-
-		</div><!-- #content -->
-	</div><!-- #container -->
-
-<?php thematic_sidebar() ?>
-<?php get_footer() ?>
+<?php get_footer(); ?>
