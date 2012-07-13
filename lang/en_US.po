@@ -1,0 +1,1627 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Flexible 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-31 22:10+0600\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Ann <anochka1985@gmail.com>\n"
+"Language-Team: Ann <anochka1985@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED STATES\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: _e;__;esc_html__;esc_html_e;esc_attr__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../comments.php:4
+msgid "Please do not load this page directly. Thanks!"
+msgstr ""
+
+#: ../comments.php:8
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+
+#: ../comments.php:17
+msgid "0 Comments"
+msgstr ""
+
+#: ../comments.php:17
+#: ../functions.php:201
+msgid "1 Comment"
+msgstr ""
+
+#: ../comments.php:17
+msgid "Comments"
+msgstr ""
+
+#: ../comments.php:21
+#: ../comments.php:34
+msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
+msgstr ""
+
+#: ../comments.php:22
+#: ../comments.php:35
+msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../comments.php:41
+msgid "Trackbacks/Pingbacks"
+msgstr ""
+
+#: ../comments.php:59
+msgid "Submit Comment"
+msgstr ""
+
+#: ../comments.php:59
+msgid "Post a Reply"
+msgstr ""
+
+#: ../comments.php:59
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: ../footer.php:4
+#, php-format
+msgid "Designed by %s | Powered by %s"
+msgstr ""
+
+#: ../functions.php:57
+msgid "Primary Menu"
+msgstr ""
+
+#: ../functions.php:92
+msgid "Navigation Menu"
+msgstr ""
+
+#: ../functions.php:104
+msgid "Search Categories"
+msgstr ""
+
+#: ../functions.php:105
+msgid "All Categories"
+msgstr ""
+
+#: ../functions.php:106
+msgid "Parent Category"
+msgstr ""
+
+#: ../functions.php:107
+msgid "Parent Category:"
+msgstr ""
+
+#: ../functions.php:108
+msgid "Edit Category"
+msgstr ""
+
+#: ../functions.php:109
+msgid "Update Category"
+msgstr ""
+
+#: ../functions.php:110
+msgid "Add New Category"
+msgstr ""
+
+#: ../functions.php:111
+msgid "New Category Name"
+msgstr ""
+
+#: ../functions.php:112
+msgid "Category"
+msgstr ""
+
+#: ../functions.php:129
+msgid "Add New Project"
+msgstr ""
+
+#: ../functions.php:130
+msgid "Edit Project"
+msgstr ""
+
+#: ../functions.php:131
+msgid "New Project"
+msgstr ""
+
+#: ../functions.php:132
+msgid "All Projects"
+msgstr ""
+
+#: ../functions.php:133
+msgid "View Project"
+msgstr ""
+
+#: ../functions.php:134
+msgid "Search Projects"
+msgstr ""
+
+#: ../functions.php:135
+msgid "Nothing found"
+msgstr ""
+
+#: ../functions.php:136
+msgid "Nothing found in Trash"
+msgstr ""
+
+#: ../functions.php:180
+#, php-format
+msgid "Posts by %s"
+msgstr ""
+
+#: ../functions.php:197
+msgid "% Comments"
+msgstr ""
+
+#: ../functions.php:199
+msgid "No Comments"
+msgstr ""
+
+#: ../functions.php:214
+#: ../page-blog.php:60
+msgid "by"
+msgstr ""
+
+#: ../functions.php:218
+#: ../page-blog.php:60
+msgid "on"
+msgstr ""
+
+#: ../functions.php:221
+#: ../page-blog.php:60
+msgid "in"
+msgstr ""
+
+#: ../functions.php:226
+#: ../page-blog.php:60
+msgid "Posted"
+msgstr ""
+
+#: ../functions.php:288
+msgid "More info &raquo;"
+msgstr ""
+
+#: ../header.php:57
+msgid "Home"
+msgstr ""
+
+#: ../home.php:14
+msgid "Design"
+msgstr ""
+
+#: ../home.php:15
+msgid "Recent work"
+msgstr ""
+
+#: ../home.php:17
+msgid "More work &raquo;"
+msgstr ""
+
+#: ../home.php:36
+msgid "All"
+msgstr ""
+
+#: ../home.php:58
+msgid "Blog"
+msgstr ""
+
+#: ../home.php:59
+msgid "Recent news"
+msgstr ""
+
+#: ../home.php:61
+msgid "More posts &raquo;"
+msgstr ""
+
+#: ../home.php:74
+#, php-format
+msgid "Posted on %1$s by %2$s"
+msgstr ""
+
+#: ../home.php:79
+msgid "Nothing Found"
+msgstr ""
+
+#: ../loop-page.php:22
+#: ../loop-single.php:32
+#: ../loop-single_project.php:14
+#: ../page-blog.php:102
+#: ../page-contact.php:134
+#: ../page-gallery.php:82
+#: ../page-login.php:55
+#: ../page-search.php:48
+#: ../page-search.php:84
+msgid "Pages"
+msgstr ""
+
+#: ../loop-page.php:23
+#: ../loop-single.php:33
+#: ../loop-single_project.php:15
+#: ../page-blog.php:103
+#: ../page-contact.php:135
+#: ../page-gallery.php:83
+#: ../page-login.php:56
+#: ../page-search.php:85
+msgid "Edit this page"
+msgstr ""
+
+#: ../loop-single.php:27
+#: ../loop-single_project.php:9
+#: ../page-blog.php:60
+msgid "0 comments"
+msgstr ""
+
+#: ../loop-single.php:27
+#: ../loop-single_project.php:9
+#: ../page-blog.php:60
+msgid "1 comment"
+msgstr ""
+
+#: ../loop-single.php:27
+#: ../loop-single_project.php:9
+#: ../page-blog.php:60
+msgid "comments"
+msgstr ""
+
+#: ../page-blog.php:80
+msgid "read more"
+msgstr ""
+
+#: ../page-contact.php:19
+msgid "Make sure you entered the captcha. "
+msgstr ""
+
+#: ../page-contact.php:22
+msgid "Numbers regenerated."
+msgstr ""
+
+#: ../page-contact.php:23
+msgid "You entered the wrong number in captcha. "
+msgstr ""
+
+#: ../page-contact.php:32
+msgid "Make sure you fill all fields. "
+msgstr ""
+
+#: ../page-contact.php:37
+msgid "Invalid Email. "
+msgstr ""
+
+#: ../page-contact.php:58
+msgid "Thanks for contacting us"
+msgstr ""
+
+#: ../page-contact.php:112
+msgid "Captcha: "
+msgstr ""
+
+#: ../page-gallery.php:65
+msgid "Zoom in"
+msgstr ""
+
+#: ../page-gallery.php:66
+msgid "Read more"
+msgstr ""
+
+#: ../page-login.php:44
+msgid "Username"
+msgstr ""
+
+#: ../page-login.php:45
+msgid "Password"
+msgstr ""
+
+#: ../page-login.php:49
+msgid "Not a member?"
+msgstr ""
+
+#: ../page-login.php:49
+msgid "Register today!"
+msgstr ""
+
+#: ../page-search.php:42
+msgid "search this website"
+msgstr ""
+
+#: ../page-search.php:47
+msgid "Posts"
+msgstr ""
+
+#: ../page-search.php:51
+msgid "Select a month"
+msgstr ""
+
+#: ../page-sitemap.php:47
+#: ../epanel/options_flexible.php:401
+msgid "Categories"
+msgstr ""
+
+#: ../page-sitemap.php:52
+msgid "Tags"
+msgstr ""
+
+#: ../page-sitemap.php:68
+msgid "Authors"
+msgstr ""
+
+#: ../epanel/core_functions.php:26
+#: ../epanel/core_functions.php:371
+msgid "Saving..."
+msgstr ""
+
+#: ../epanel/core_functions.php:27
+msgid "Options Saved."
+msgstr ""
+
+#: ../epanel/core_functions.php:73
+msgid "Options"
+msgstr ""
+
+#: ../epanel/core_functions.php:73
+msgid "Theme Options"
+msgstr ""
+
+#: ../epanel/core_functions.php:87
+msgid "settings saved."
+msgstr ""
+
+#: ../epanel/core_functions.php:90
+msgid "settings reset."
+msgstr ""
+
+#: ../epanel/core_functions.php:108
+#: ../epanel/options_flexible.php:406
+#: ../epanel/options_flexible.php:555
+msgid "General Settings"
+msgstr ""
+
+#: ../epanel/core_functions.php:111
+msgid "Navigation"
+msgstr ""
+
+#: ../epanel/core_functions.php:114
+msgid "Layout Settings"
+msgstr ""
+
+#: ../epanel/core_functions.php:117
+msgid "Ad Management"
+msgstr ""
+
+#: ../epanel/core_functions.php:120
+#: ../epanel/options_flexible.php:647
+msgid "Colorization"
+msgstr ""
+
+#: ../epanel/core_functions.php:123
+msgid "SEO"
+msgstr ""
+
+#: ../epanel/core_functions.php:126
+msgid "Integration"
+msgstr ""
+
+#: ../epanel/core_functions.php:129
+msgid "Support Docs"
+msgstr ""
+
+#: ../epanel/core_functions.php:195
+#: ../epanel/core_functions.php:359
+msgid "Reset"
+msgstr ""
+
+#: ../epanel/core_functions.php:221
+msgid "You don't have pages"
+msgstr ""
+
+#: ../epanel/core_functions.php:344
+msgid "Save changes"
+msgstr ""
+
+#: ../epanel/core_functions.php:355
+msgid "This will return all of the settings throughout the options page to their default values. <strong>Are you sure you want to do this?"
+msgstr ""
+
+#: ../epanel/custom_functions.php:739
+msgid "Image doesn't exist"
+msgstr ""
+
+#: ../epanel/custom_functions.php:904
+#, php-format
+msgid "<div class=\"updated\"><p>This is a fresh installation of %1$s theme. Don't forget to go to <a href=\"%2$s\">ePanel</a> to set it up. This message will disappear once you have clicked the Save button within the <a href=\"%2$s\">theme's options page</a>.</p></div>"
+msgstr ""
+
+#: ../epanel/options_flexible.php:38
+msgid "Thin Vertical Lines"
+msgstr ""
+
+#: ../epanel/options_flexible.php:38
+msgid "Small Squares"
+msgstr ""
+
+#: ../epanel/options_flexible.php:38
+msgid "Thick Diagonal Lines"
+msgstr ""
+
+#: ../epanel/options_flexible.php:38
+msgid "Thin Diagonal Lines"
+msgstr ""
+
+#: ../epanel/options_flexible.php:38
+msgid "Diamonds"
+msgstr ""
+
+#: ../epanel/options_flexible.php:38
+msgid "Small Circles"
+msgstr ""
+
+#: ../epanel/options_flexible.php:38
+msgid "Thick Vertical Lines"
+msgstr ""
+
+#: ../epanel/options_flexible.php:38
+msgid "Thin Flourish"
+msgstr ""
+
+#: ../epanel/options_flexible.php:38
+msgid "Thick Flourish"
+msgstr ""
+
+#: ../epanel/options_flexible.php:38
+msgid "Pocodot"
+msgstr ""
+
+#: ../epanel/options_flexible.php:38
+msgid "Checkerboard"
+msgstr ""
+
+#: ../epanel/options_flexible.php:38
+msgid "Squares"
+msgstr ""
+
+#: ../epanel/options_flexible.php:38
+msgid "Noise"
+msgstr ""
+
+#: ../epanel/options_flexible.php:38
+msgid "Wooden"
+msgstr ""
+
+#: ../epanel/options_flexible.php:38
+msgid "Stone"
+msgstr ""
+
+#: ../epanel/options_flexible.php:38
+msgid "Canvas"
+msgstr ""
+
+#: ../epanel/options_flexible.php:55
+msgid "General"
+msgstr ""
+
+#: ../epanel/options_flexible.php:59
+msgid "Homepage"
+msgstr ""
+
+#: ../epanel/options_flexible.php:63
+msgid "Featured Slider"
+msgstr ""
+
+#: ../epanel/options_flexible.php:70
+msgid "Use Logo Image"
+msgstr ""
+
+#: ../epanel/options_flexible.php:74
+msgid "Enable this option to use image as logo instead of the Text logo. You can setup Logo text via WP-Admin / Settings / General / Site Title ( Use logo image should be disabled )"
+msgstr ""
+
+#: ../epanel/options_flexible.php:79
+msgid "Logo"
+msgstr ""
+
+#: ../epanel/options_flexible.php:83
+#: ../epanel/options_flexible.php:90
+#: ../epanel/options_flexible.php:97
+#: ../epanel/options_flexible.php:104
+#: ../epanel/options_flexible.php:112
+#: ../epanel/options_flexible.php:119
+#: ../epanel/options_flexible.php:127
+#: ../epanel/options_flexible.php:134
+#: ../epanel/options_flexible.php:142
+#: ../epanel/options_flexible.php:149
+#: ../epanel/options_flexible.php:209
+#: ../epanel/options_flexible.php:216
+#: ../epanel/options_flexible.php:231
+#: ../epanel/options_flexible.php:238
+#: ../epanel/options_flexible.php:254
+msgid "desc."
+msgstr ""
+
+#: ../epanel/options_flexible.php:86
+msgid "Favicon"
+msgstr ""
+
+#: ../epanel/options_flexible.php:93
+msgid "Phone number"
+msgstr ""
+
+#: ../epanel/options_flexible.php:100
+msgid "Background Color"
+msgstr ""
+
+#: ../epanel/options_flexible.php:107
+msgid "Background Texture"
+msgstr ""
+
+#: ../epanel/options_flexible.php:115
+msgid "Background Image"
+msgstr ""
+
+#: ../epanel/options_flexible.php:122
+msgid "Header Font"
+msgstr ""
+
+#: ../epanel/options_flexible.php:130
+msgid "Header Font Color"
+msgstr ""
+
+#: ../epanel/options_flexible.php:137
+msgid "Body Font"
+msgstr ""
+
+#: ../epanel/options_flexible.php:145
+msgid "Body Font Color"
+msgstr ""
+
+#: ../epanel/options_flexible.php:152
+msgid "Blog Style post format"
+msgstr ""
+
+#: ../epanel/options_flexible.php:156
+msgid "By default the theme truncates your posts on index/homepages automatically to create post previews. If you would rather show your posts in full on index pages like a traditional blog then you can activate this feature."
+msgstr ""
+
+#: ../epanel/options_flexible.php:159
+msgid "Grab the first post image"
+msgstr ""
+
+#: ../epanel/options_flexible.php:163
+msgid "By default thumbnail images are created using custom fields. However, if you would rather use the images that are already in your post for your thumbnail (and bypass using custom fields) you can activate this option. Once activcated thumbnail images will be generated automatically using the first image in your post. The image must be hosted on your own server."
+msgstr ""
+
+#: ../epanel/options_flexible.php:168
+msgid "Number of Posts displayed on Category page"
+msgstr ""
+
+#: ../epanel/options_flexible.php:172
+msgid "Here you can designate how many recent articles are displayed on the Category page. This option works independently from the Settings > Reading options in wp-admin."
+msgstr ""
+
+#: ../epanel/options_flexible.php:175
+msgid "Number of Posts displayed on Portfolio pages"
+msgstr ""
+
+#: ../epanel/options_flexible.php:179
+msgid "Here you can designate how many recent articles are displayed on the Archive pages. This option works independently from the Settings > Reading options in wp-admin."
+msgstr ""
+
+#: ../epanel/options_flexible.php:182
+msgid "Number of Posts displayed on Search pages"
+msgstr ""
+
+#: ../epanel/options_flexible.php:186
+msgid "Here you can designate how many recent articles are displayed on the Search results pages. This option works independently from the Settings > Reading options in wp-admin."
+msgstr ""
+
+#: ../epanel/options_flexible.php:189
+msgid "Number of Posts displayed on Tag pages"
+msgstr ""
+
+#: ../epanel/options_flexible.php:193
+msgid "Here you can designate how many recent articles are displayed on the Tag pages. This option works independently from the Settings > Reading options in wp-admin."
+msgstr ""
+
+#: ../epanel/options_flexible.php:196
+msgid "Date format"
+msgstr ""
+
+#: ../epanel/options_flexible.php:200
+msgid "This option allows you to change how your dates are displayed. For more information please refer to the WordPress codex here:<a href='http://codex.wordpress.org/Formatting_Date_and_Time' target='_blank'>Formatting Date and Time</a>"
+msgstr ""
+
+#: ../epanel/options_flexible.php:205
+msgid "Use excerpts when defined"
+msgstr ""
+
+#: ../epanel/options_flexible.php:212
+msgid "Show Control Panel"
+msgstr ""
+
+#: ../epanel/options_flexible.php:227
+msgid "Display Content Areas"
+msgstr ""
+
+#: ../epanel/options_flexible.php:234
+msgid "Display Recent Work Section"
+msgstr ""
+
+#: ../epanel/options_flexible.php:243
+msgid "Display Homepage Quote"
+msgstr ""
+
+#: ../epanel/options_flexible.php:247
+msgid "This controls the quote that appears on the homepage 3 blurbs."
+msgstr ""
+
+#: ../epanel/options_flexible.php:250
+msgid "Display Blog Section"
+msgstr ""
+
+#: ../epanel/options_flexible.php:259
+msgid "Quote Line 1 Text"
+msgstr ""
+
+#: ../epanel/options_flexible.php:263
+#: ../epanel/options_flexible.php:270
+msgid "Here you can define the text that appears in the homepage quote."
+msgstr ""
+
+#: ../epanel/options_flexible.php:266
+msgid "Quote Line 2 Text"
+msgstr ""
+
+#: ../epanel/options_flexible.php:273
+msgid "Number of Posts in 'Recent Work' Section"
+msgstr ""
+
+#: ../epanel/options_flexible.php:277
+msgid "Here you can designate how many recent articles are displayed in Recent Work section on the homepage. "
+msgstr ""
+
+#: ../epanel/options_flexible.php:280
+msgid "Exclude categories from 'Recent Work' Section"
+msgstr ""
+
+#: ../epanel/options_flexible.php:284
+#: ../epanel/options_flexible.php:627
+msgid "desc. "
+msgstr ""
+
+#: ../epanel/options_flexible.php:289
+msgid "Number of Recent Posts displayed on homepage"
+msgstr ""
+
+#: ../epanel/options_flexible.php:293
+msgid "Here you can designate how many recent articles are displayed on the homepage. This option works independently from the Settings > Reading options in wp-admin."
+msgstr ""
+
+#: ../epanel/options_flexible.php:296
+msgid "Exclude categories from homepage recent posts"
+msgstr ""
+
+#: ../epanel/options_flexible.php:300
+msgid "By default the homepage displays a list of all of your most recent posts. However, if you would like to exlcude certain category from the list you can do so here. "
+msgstr ""
+
+#: ../epanel/options_flexible.php:310
+msgid "Display Featured Slider"
+msgstr ""
+
+#: ../epanel/options_flexible.php:314
+msgid "You can choose whether or not to display the Featured Articles section on the homepge. If you don't want to utilize this feature simply disable this option."
+msgstr ""
+
+#: ../epanel/options_flexible.php:317
+msgid "Duplicate Featured Articles"
+msgstr ""
+
+#: ../epanel/options_flexible.php:321
+msgid "In some cases your Featured Articles will also be one of your most recent articles, in which case the article will be displayed twice on the homepage. If you would like to remove duplicate posts enable this option."
+msgstr ""
+
+#: ../epanel/options_flexible.php:326
+msgid "Featured Category"
+msgstr ""
+
+#: ../epanel/options_flexible.php:330
+msgid "Here you can choose which category to be used to populate the Featured Slider on the homepage. This only applies if you have disabled the Use Pages options below."
+msgstr ""
+
+#: ../epanel/options_flexible.php:333
+msgid "Number of Featured Slides"
+msgstr ""
+
+#: ../epanel/options_flexible.php:337
+msgid "This setting controls how menu tabs are added to the Featured Articles slider on the homepage."
+msgstr ""
+
+#: ../epanel/options_flexible.php:340
+msgid "Use pages"
+msgstr ""
+
+#: ../epanel/options_flexible.php:344
+msgid "The homepage Featured Slider can be set up using two methods. You can populate the slider using Posts, or you can populate it using Pages. If you would like to use Pages in the Featured Slider then enable this option."
+msgstr ""
+
+#: ../epanel/options_flexible.php:349
+msgid "Include pages in the Featured Slider (if Use Pages enabled)"
+msgstr ""
+
+#: ../epanel/options_flexible.php:353
+msgid "If you selected Use Pages above, then use the checkboxes below to choose which pages are displayed in the Featured Slider."
+msgstr ""
+
+#: ../epanel/options_flexible.php:358
+msgid "Featured Slider Animation"
+msgstr ""
+
+#: ../epanel/options_flexible.php:365
+msgid "Automatic Slider Animation"
+msgstr ""
+
+#: ../epanel/options_flexible.php:369
+msgid "If you would like the Featured Articles slider to slide automatically, without the visitor having to click the next button, enable this option and then adjust the rotation speed below if desired."
+msgstr ""
+
+#: ../epanel/options_flexible.php:374
+msgid "Automatic Animation Speed (in ms)"
+msgstr ""
+
+#: ../epanel/options_flexible.php:378
+msgid "Here you can designate how fast the slider fades between each article. The higher the number the longer the pause between each rotation."
+msgstr ""
+
+#: ../epanel/options_flexible.php:414
+msgid "Exclude pages from the navigation bar"
+msgstr ""
+
+#: ../epanel/options_flexible.php:418
+msgid "Here you can choose to remove certain pages from the navigation menu. All pages marked with an X will not appear in your navigation bar. "
+msgstr ""
+
+#: ../epanel/options_flexible.php:422
+#: ../epanel/options_flexible.php:476
+msgid "Show dropdown menus"
+msgstr ""
+
+#: ../epanel/options_flexible.php:426
+msgid "If you would like to remove the dropdown menus from the pages navigation bar disable this feature."
+msgstr ""
+
+#: ../epanel/options_flexible.php:429
+msgid "Display Home link"
+msgstr ""
+
+#: ../epanel/options_flexible.php:433
+msgid "By default the theme creates a Home link that, when clicked, leads back to your blog's homepage. If, however, you are using a static homepage and have already created a page called Home to use, this will result in a duplicate link. In this case you should disable this feature to remove the link."
+msgstr ""
+
+#: ../epanel/options_flexible.php:438
+msgid "Sort Pages Links"
+msgstr ""
+
+#: ../epanel/options_flexible.php:442
+msgid "Here you can choose to sort your pages links."
+msgstr ""
+
+#: ../epanel/options_flexible.php:445
+msgid "Order Pages Links by Ascending/Descending"
+msgstr ""
+
+#: ../epanel/options_flexible.php:449
+msgid "Here you can choose to reverse the order that your pages links are displayed. You can choose between ascending and descending."
+msgstr ""
+
+#: ../epanel/options_flexible.php:452
+#: ../epanel/options_flexible.php:492
+msgid "Number of dropdown tiers shown"
+msgstr ""
+
+#: ../epanel/options_flexible.php:456
+#: ../epanel/options_flexible.php:496
+msgid "This options allows you to control how many teirs your pages dropdown menu has. Increasing the number allows for additional menu items to be shown."
+msgstr ""
+
+#: ../epanel/options_flexible.php:468
+msgid "Exclude categories from the navigation bar"
+msgstr ""
+
+#: ../epanel/options_flexible.php:472
+msgid "Here you can choose to remove certain categories from the navigation menu. All categories marked with an X will not appear in your navigation bar. "
+msgstr ""
+
+#: ../epanel/options_flexible.php:480
+msgid "If you would like to remove the dropdown menus from the categories navigation bar disable this feature."
+msgstr ""
+
+#: ../epanel/options_flexible.php:483
+msgid "Hide empty categories"
+msgstr ""
+
+#: ../epanel/options_flexible.php:487
+msgid "If you would like categories to be displayed in your navigationbar that don't have any posts in them then disable this option. By default empty categories are hidden"
+msgstr ""
+
+#: ../epanel/options_flexible.php:501
+msgid "Sort Categories Links by Name/ID/Slug/Count/Term Group"
+msgstr ""
+
+#: ../epanel/options_flexible.php:505
+msgid "By default pages are sorted by name. However if you would rather have them sorted by ID you can adjust this setting."
+msgstr ""
+
+#: ../epanel/options_flexible.php:508
+msgid "Order Category Links by Ascending/Descending"
+msgstr ""
+
+#: ../epanel/options_flexible.php:512
+msgid "Here you can choose to reverse the order that your categories links are displayed. You can choose between ascending and descending."
+msgstr ""
+
+#: ../epanel/options_flexible.php:521
+msgid "Disable top tier dropdown menu links"
+msgstr ""
+
+#: ../epanel/options_flexible.php:525
+msgid "In some cases users will want to create parent categories or links as placeholders to hold a list of child links or categories. In this case it is not desirable to have the parent links lead anywhere, but instead merely serve an organizational function. Enabling this options will remove the links from all parent pages/categories so that they don't lead anywhere when clicked."
+msgstr ""
+
+#: ../epanel/options_flexible.php:545
+msgid "Single Post Layout"
+msgstr ""
+
+#: ../epanel/options_flexible.php:550
+msgid "Single Page Layout"
+msgstr ""
+
+#: ../epanel/options_flexible.php:563
+msgid "Choose which items to display in the postinfo section"
+msgstr ""
+
+#: ../epanel/options_flexible.php:567
+msgid "Here you can choose which items appear in the postinfo section on single post pages. This is the area, usually below the post title, which displays basic information about your post. The highlighted itmes shown below will appear. "
+msgstr ""
+
+#: ../epanel/options_flexible.php:570
+msgid "Place Thumbs on Posts"
+msgstr ""
+
+#: ../epanel/options_flexible.php:574
+msgid "By default thumbnails are placed at the beginning of your post on single post pages. If you would like to remove this initial thumbnail image to avoid repetition simply disable this option. "
+msgstr ""
+
+#: ../epanel/options_flexible.php:577
+msgid "Show comments on posts"
+msgstr ""
+
+#: ../epanel/options_flexible.php:581
+msgid "You can disable this option if you want to remove the comments and comment form from single post pages. "
+msgstr ""
+
+#: ../epanel/options_flexible.php:592
+msgid "Place Thumbs on Pages"
+msgstr ""
+
+#: ../epanel/options_flexible.php:596
+msgid "By default thumbnails are not placed on pages (they are only used on posts). However, if you want to use thumbnails on posts you can! Just enable this option. "
+msgstr ""
+
+#: ../epanel/options_flexible.php:599
+msgid "Show comments on pages"
+msgstr ""
+
+#: ../epanel/options_flexible.php:603
+msgid "By default comments are not placed on pages, however, if you would like to allow people to comment on your pages simply enable this option. "
+msgstr ""
+
+#: ../epanel/options_flexible.php:614
+msgid "Post info section"
+msgstr ""
+
+#: ../epanel/options_flexible.php:618
+msgid "Here you can choose which items appear in the postinfo section on pages. This is the area, usually below the post title, which displays basic information about your post. The highlighted itmes shown below will appear. "
+msgstr ""
+
+#: ../epanel/options_flexible.php:623
+msgid "Show Thumbs on Index pages"
+msgstr ""
+
+#: ../epanel/options_flexible.php:655
+msgid "Color visualizer (this is not setting, just a tool to find hexdecimal values)"
+msgstr ""
+
+#: ../epanel/options_flexible.php:657
+msgid "This is a tool that can be used to find hexdecimal color values. These values can be used to customize the colors of the various elements below. This color picker will also appear which you click in any of the fields below. "
+msgstr ""
+
+#: ../epanel/options_flexible.php:660
+msgid "Enable custom colors"
+msgstr ""
+
+#: ../epanel/options_flexible.php:664
+msgid "This option allows you to customize the color of a certain element of the theme. When you click in the field a color picker will appear. Scroll to find your desired color and then click the circular submit button on the lower right to accept the value."
+msgstr ""
+
+#: ../epanel/options_flexible.php:667
+msgid "Enable child stylesheet"
+msgstr ""
+
+#: ../epanel/options_flexible.php:671
+msgid "If you would like to add a second stylsheet to your blog enable this option and input the link to your stylesheet below."
+msgstr ""
+
+#: ../epanel/options_flexible.php:676
+msgid "Child stylesheet URL"
+msgstr ""
+
+#: ../epanel/options_flexible.php:680
+msgid "Input the URL to your child stylsheet here."
+msgstr ""
+
+#: ../epanel/options_flexible.php:683
+msgid "Main font color"
+msgstr ""
+
+#: ../epanel/options_flexible.php:687
+#: ../epanel/options_flexible.php:694
+#: ../epanel/options_flexible.php:701
+#: ../epanel/options_flexible.php:708
+#: ../epanel/options_flexible.php:715
+#: ../epanel/options_flexible.php:722
+#: ../epanel/options_flexible.php:729
+#: ../epanel/options_flexible.php:736
+msgid "This option allows you to customize the color of a certain element of the theme. When you click inside the field a color picker will appear. Scroll to find your desired color and then click the circular submit button on the lower right to accept the value"
+msgstr ""
+
+#: ../epanel/options_flexible.php:690
+msgid "Link color"
+msgstr ""
+
+#: ../epanel/options_flexible.php:697
+msgid "Menu link color"
+msgstr ""
+
+#: ../epanel/options_flexible.php:704
+msgid "Menu active link color"
+msgstr ""
+
+#: ../epanel/options_flexible.php:711
+msgid "Headings color"
+msgstr ""
+
+#: ../epanel/options_flexible.php:718
+msgid "Sidebar links color"
+msgstr ""
+
+#: ../epanel/options_flexible.php:725
+msgid "Footer text color"
+msgstr ""
+
+#: ../epanel/options_flexible.php:732
+msgid "Footer links color"
+msgstr ""
+
+#: ../epanel/options_flexible.php:753
+msgid "Homepage SEO"
+msgstr ""
+
+#: ../epanel/options_flexible.php:758
+msgid "Single Post Page SEO"
+msgstr ""
+
+#: ../epanel/options_flexible.php:763
+msgid "Index Page SEO"
+msgstr ""
+
+#: ../epanel/options_flexible.php:771
+msgid " Enable custom title "
+msgstr ""
+
+#: ../epanel/options_flexible.php:775
+msgid "By default the theme uses a combination of your blog name and your blog description, as defined when you created your blog, to create your homepage titles. However if you want to create a custom title then simply enable this option and fill in the custom title field below. "
+msgstr ""
+
+#: ../epanel/options_flexible.php:778
+msgid " Enable meta description"
+msgstr ""
+
+#: ../epanel/options_flexible.php:782
+msgid "By default the theme uses your blog description, as defined when you created your blog, to fill in the meta description field. If you would like to use a different description then enable this option and fill in the custom description field below. "
+msgstr ""
+
+#: ../epanel/options_flexible.php:785
+msgid " Enable meta keywords"
+msgstr ""
+
+#: ../epanel/options_flexible.php:789
+msgid "By default the theme does not add keywords to your header. Most search engines don't use keywords to rank your site anymore, but some people define them anyway just in case. If you want to add meta keywords to your header then enable this option and fill in the custom keywords field below. "
+msgstr ""
+
+#: ../epanel/options_flexible.php:792
+#: ../epanel/options_flexible.php:917
+msgid " Enable canonical URL's"
+msgstr ""
+
+#: ../epanel/options_flexible.php:796
+msgid "Canonicalization helps to prevent the indexing of duplicate content by search engines, and as a result, may help avoid duplicate content penalties and pagerank degradation. Some pages may have different URLs all leading to the same place. For example domain.com, domain.com/index.html, and www.domain.com are all different URLs leading to your homepage. From a search engine's perspective these duplicate URLs, which also occur often due to custom permalinks, may be treaded individually instead of as a single destination. Defining a canonical URL tells the search engine which URL you would like to use officially. The theme bases its canonical URLs off your permalinks and the domain name defined in the settings tab of wp-admin."
+msgstr ""
+
+#: ../epanel/options_flexible.php:801
+msgid "Homepage custom title (if enabled)"
+msgstr ""
+
+#: ../epanel/options_flexible.php:805
+msgid "If you have enabled custom titles you can add your custom title here. Whatever you type here will be placed between the < title >< /title > tags in header.php"
+msgstr ""
+
+#: ../epanel/options_flexible.php:808
+msgid "Homepage meta description (if enabled)"
+msgstr ""
+
+#: ../epanel/options_flexible.php:812
+msgid "If you have enabled meta descriptions you can add your custom description here."
+msgstr ""
+
+#: ../epanel/options_flexible.php:815
+msgid "Homepage meta keywords (if enabled)"
+msgstr ""
+
+#: ../epanel/options_flexible.php:819
+msgid "If you have enabled meta keywords you can add your custom keywords here. Keywords should be separated by comas. For example: wordpress,themes,templates,elegant"
+msgstr ""
+
+#: ../epanel/options_flexible.php:822
+#: ../epanel/options_flexible.php:896
+msgid "If custom titles are disabled, choose autogeneration method"
+msgstr ""
+
+#: ../epanel/options_flexible.php:827
+msgid "If you are not using cutsom post titles you can still have control over how your titles are generated. Here you can choose which order you would like your post title and blog name to be displayed, or you can remove the blog name from the title completely."
+msgstr ""
+
+#: ../epanel/options_flexible.php:830
+#: ../epanel/options_flexible.php:904
+#: ../epanel/options_flexible.php:941
+msgid "Define a character to separate BlogName and Post title"
+msgstr ""
+
+#: ../epanel/options_flexible.php:834
+#: ../epanel/options_flexible.php:908
+msgid "Here you can change which character separates your blog title and post name when using autogenerated post titles. Common values are | or -"
+msgstr ""
+
+#: ../epanel/options_flexible.php:843
+msgid "Enable custom titles"
+msgstr ""
+
+#: ../epanel/options_flexible.php:847
+msgid "By default the theme creates post titles based on the title of your post and your blog name. If you would like to make your meta title different than your actual post title you can define a custom title for each post using custom fields. This option must be enabled for custom titles to work, and you must choose a custom field name for your title below."
+msgstr ""
+
+#: ../epanel/options_flexible.php:850
+msgid "Enable custom description"
+msgstr ""
+
+#: ../epanel/options_flexible.php:854
+msgid "If you would like to add a meta description to your post you can do so using custom fields. This option must be enabled for descriptions to be displayed on post pages. You can add your meta description using custom fields based off the custom field name you define below."
+msgstr ""
+
+#: ../epanel/options_flexible.php:859
+msgid "Enable custom keywords"
+msgstr ""
+
+#: ../epanel/options_flexible.php:863
+msgid "If you would like to add meta keywords to your post you can do so using custom fields. This option must be enabled for keywords to be displayed on post pages. You can add your meta keywords using custom fields based off the custom field name you define below."
+msgstr ""
+
+#: ../epanel/options_flexible.php:866
+msgid "Enable canonical URL's"
+msgstr ""
+
+#: ../epanel/options_flexible.php:870
+#: ../epanel/options_flexible.php:921
+msgid "Canonicalization helps to prevent the indexing of duplicate content by search engines, and as a result, may help avoid duplicate content penalties and pagerank degradation. Some pages may have different URL's all leading to the same place. For example domain.com, domain.com/index.html, and www.domain.com are all different URLs leading to your homepage. From a search engine's perspective these duplicate URLs, which also occur often due to custom permalinks, may be treaded individually instead of as a single destination. Defining a canonical URL tells the search engine which URL you would like to use officially. The theme bases its canonical URLs off your permalinks and the domain name defined in the settings tab of wp-admin."
+msgstr ""
+
+#: ../epanel/options_flexible.php:875
+msgid "Custom field Name to be used for title"
+msgstr ""
+
+#: ../epanel/options_flexible.php:879
+msgid "When you define your title using custom fields you should use this value for the custom field Name. The Value of your custom field should be the custom title you would like to use."
+msgstr ""
+
+#: ../epanel/options_flexible.php:882
+msgid "Custom field Name to be used for description"
+msgstr ""
+
+#: ../epanel/options_flexible.php:886
+msgid "When you define your meta description using custom fields you should use this value for the custom field Name. The Value of your custom field should be the custom description you would like to use."
+msgstr ""
+
+#: ../epanel/options_flexible.php:889
+msgid "Custom field Name to be used for keywords"
+msgstr ""
+
+#: ../epanel/options_flexible.php:893
+msgid "When you define your keywords using custom fields you should use this value for the custom field Name. The Value of your custom field should be the meta keywords you would like to use, separated by comas."
+msgstr ""
+
+#: ../epanel/options_flexible.php:901
+msgid "If you are not using cutsom post titles you can still have control over hw your titles are generated. Here you can choose which order you would like your post title and blog name to be displayed, or you can remove the blog name from the title completely."
+msgstr ""
+
+#: ../epanel/options_flexible.php:924
+msgid "Enable meta descriptions"
+msgstr ""
+
+#: ../epanel/options_flexible.php:928
+msgid "Check this box if you want to display meta descriptions on category/archive pages. The description is based off the category description you choose when creating/edit your category in wp-admin."
+msgstr ""
+
+#: ../epanel/options_flexible.php:933
+msgid "Choose title autogeneration method"
+msgstr ""
+
+#: ../epanel/options_flexible.php:938
+msgid "Here you can choose how your titles on index pages are generated. You can change which order your blog name and index title are displayed, or you can remove the blog name from the title completely."
+msgstr ""
+
+#: ../epanel/options_flexible.php:945
+#: ../epanel/options_flexible.php:1095
+#: ../epanel/options_flexible.php:1102
+msgid "Here you can change which character separates your blog title and index page name when using autogenerated post titles. Common values are | or -"
+msgstr ""
+
+#: ../epanel/options_flexible.php:965
+msgid "Code Integration"
+msgstr ""
+
+#: ../epanel/options_flexible.php:973
+msgid "Enable header code"
+msgstr ""
+
+#: ../epanel/options_flexible.php:977
+msgid "Disabling this option will remove the header code below from your blog. This allows you to remove the code while saving it for later use."
+msgstr ""
+
+#: ../epanel/options_flexible.php:980
+msgid "Enable body code"
+msgstr ""
+
+#: ../epanel/options_flexible.php:984
+msgid "Disabling this option will remove the body code below from your blog. This allows you to remove the code while saving it for later use."
+msgstr ""
+
+#: ../epanel/options_flexible.php:989
+msgid "Enable single top code"
+msgstr ""
+
+#: ../epanel/options_flexible.php:993
+msgid "Disabling this option will remove the single top code below from your blog. This allows you to remove the code while saving it for later use."
+msgstr ""
+
+#: ../epanel/options_flexible.php:996
+msgid "Enable single bottom code"
+msgstr ""
+
+#: ../epanel/options_flexible.php:1000
+msgid "Disabling this option will remove the single bottom code below from your blog. This allows you to remove the code while saving it for later use."
+msgstr ""
+
+#: ../epanel/options_flexible.php:1005
+msgid "Add code to the < head > of your blog"
+msgstr ""
+
+#: ../epanel/options_flexible.php:1009
+msgid "Any code you place here will appear in the head section of every page of your blog. This is useful when you need to add javascript or css to all pages."
+msgstr ""
+
+#: ../epanel/options_flexible.php:1012
+msgid "Add code to the < body > (good for tracking codes such as google analytics)"
+msgstr ""
+
+#: ../epanel/options_flexible.php:1016
+msgid "Any code you place here will appear in body section of all pages of your blog. This is usefull if you need to input a tracking pixel for a state counter such as Google Analytics."
+msgstr ""
+
+#: ../epanel/options_flexible.php:1019
+msgid "Add code to the top of your posts"
+msgstr ""
+
+#: ../epanel/options_flexible.php:1023
+#: ../epanel/options_flexible.php:1030
+msgid "Any code you place here will be placed at the top of all single posts. This is useful if you are looking to integrating things such as social bookmarking links."
+msgstr ""
+
+#: ../epanel/options_flexible.php:1026
+msgid "Add code to the bottom of your posts, before the comments"
+msgstr ""
+
+#: ../epanel/options_flexible.php:1048
+msgid "Documentation"
+msgstr ""
+
+#: ../epanel/options_flexible.php:1074
+msgid "Manage Un-widgetized Advertisements"
+msgstr ""
+
+#: ../epanel/options_flexible.php:1082
+msgid "Enable 468x60 banner"
+msgstr ""
+
+#: ../epanel/options_flexible.php:1086
+msgid "Enabling this option will display a 468x60 banner ad on the bottom of your post pages below the single post content. If enabled you must fill in the banner image and destination url below."
+msgstr ""
+
+#: ../epanel/options_flexible.php:1091
+msgid "Input 468x60 advertisement banner image"
+msgstr ""
+
+#: ../epanel/options_flexible.php:1098
+msgid "Input 468x60 advertisement destination url"
+msgstr ""
+
+#: ../epanel/options_flexible.php:1105
+msgid "Input 468x60 adsense code"
+msgstr ""
+
+#: ../epanel/options_flexible.php:1109
+msgid "desc"
+msgstr ""
+
+#: ../epanel/page_templates/page_templates.php:35
+msgid "ET Page Template Settings"
+msgstr ""
+
+#: ../epanel/page_templates/page_templates.php:63
+msgid "Additional settings appear here, when one of ET page templates is selected ( Page Attributes -> Template )"
+msgstr ""
+
+#: ../epanel/page_templates/page_templates.php:68
+msgid "Full Width Page"
+msgstr ""
+
+#: ../epanel/page_templates/page_templates.php:73
+msgid "Regenerate captcha numbers"
+msgstr ""
+
+#: ../epanel/page_templates/page_templates.php:77
+msgid "Email To:"
+msgstr ""
+
+#: ../epanel/page_templates/page_templates.php:83
+msgid "Blog Style mode"
+msgstr ""
+
+#: ../epanel/page_templates/page_templates.php:88
+msgid "Hide Auto Thumbnail"
+msgstr ""
+
+#: ../epanel/page_templates/page_templates.php:93
+msgid "Show Titles"
+msgstr ""
+
+#: ../epanel/page_templates/page_templates.php:98
+msgid "Show Descriptions"
+msgstr ""
+
+#: ../epanel/page_templates/page_templates.php:103
+msgid "Detect Portrait Images"
+msgstr ""
+
+#: ../epanel/page_templates/page_templates.php:107
+msgid "Thumbnail Size:"
+msgstr ""
+
+#: ../epanel/page_templates/page_templates.php:108
+msgid "Small"
+msgstr ""
+
+#: ../epanel/page_templates/page_templates.php:109
+msgid "Medium"
+msgstr ""
+
+#: ../epanel/page_templates/page_templates.php:110
+msgid "Large"
+msgstr ""
+
+#: ../epanel/page_templates/page_templates.php:114
+#: ../epanel/page_templates/page_templates.php:119
+msgid "Number of posts per page:"
+msgstr ""
+
+#: ../epanel/page_templates/page_templates.php:124
+msgid "Select blog categories:"
+msgstr ""
+
+#: ../epanel/page_templates/page_templates.php:143
+msgid "Select gallery categories:"
+msgstr ""
+
+#: ../epanel/page_templates/page_templates.php:162
+msgid "Select Project categories:"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:298
+msgid "Username:"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:299
+msgid "Password:"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:300
+msgid "Login"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:303
+#, php-format
+msgid "Not a member? <a href=\"%s\">Register today!</a>"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:336
+msgid "Add a Tooltip Text"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:356
+msgid "Click here to learn more"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:949
+msgid "Caption"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:950
+msgid "Caption goes here"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:951
+msgid "Caption title goes here"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:955
+msgid "State"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:957
+msgid "Select between expanded and closed state"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:962
+#: ../epanel/shortcodes/shortcodes.php:978
+#: ../epanel/shortcodes/shortcodes.php:1007
+#: ../epanel/shortcodes/shortcodes.php:1087
+msgid "Content"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:963
+#: ../epanel/shortcodes/shortcodes.php:979
+#: ../epanel/shortcodes/shortcodes.php:1065
+#: ../epanel/shortcodes/shortcodes.php:1088
+msgid "Content goes here"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:964
+#: ../epanel/shortcodes/shortcodes.php:980
+#: ../epanel/shortcodes/shortcodes.php:1009
+msgid "Content text or html"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:971
+#: ../epanel/shortcodes/shortcodes.php:993
+msgid "Type"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:973
+msgid "Type of the box"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:987
+msgid "Link"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:989
+msgid "URL"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:995
+msgid "Choose button type"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1000
+msgid "Color"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1002
+msgid "Choose button color"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1008
+msgid "Link text"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1013
+msgid "Icon"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1015
+msgid "Used for icon button type"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1020
+msgid "Open link in new window"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1022
+msgid "Select yes if the link should be opened in a new window"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1030
+msgid "Slider Type"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1032
+msgid "Select Slider Type here"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1037
+msgid "Effect"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1039
+msgid "Select Animation Effect"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1044
+msgid "Auto"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1046
+msgid "Choose yes if you want for automatic slider animation"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1051
+msgid "Auto Speed"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1053
+msgid "Automattic slider speed (works only if Auto is set to yes)"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1057
+msgid "Tab Text"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1064
+msgid "Tab Content"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1066
+msgid "Paste image url here, if you chose \"images\" slider type"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1074
+msgid "Image Url"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1076
+msgid "Author Image URL"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1080
+msgid "Use resizing"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1157
+msgid "+ Add One More Tab"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1307
+msgid "Image Height"
+msgstr ""
+
+#: ../epanel/shortcodes/shortcodes.php:1308
+msgid "Image Width"
+msgstr ""
+
+#: ../includes/additional_functions.php:6
+msgid "ET Settings"
+msgstr ""
+
+#: ../includes/additional_functions.php:28
+msgid "Currently used images / videos"
+msgstr ""
+
+#: ../includes/additional_functions.php:29
+msgid "Please, add some images and videos"
+msgstr ""
+
+#: ../includes/additional_functions.php:38
+#: ../includes/additional_functions.php:49
+#: ../includes/additional_functions.php:75
+#: ../includes/additional_functions.php:147
+msgid "Edit"
+msgstr ""
+
+#: ../includes/additional_functions.php:41
+#: ../includes/additional_functions.php:52
+msgid "Save"
+msgstr ""
+
+#: ../includes/additional_functions.php:62
+msgid "Add video"
+msgstr ""
+
+#: ../includes/additional_functions.php:66
+msgid "Enter Video URL here"
+msgstr ""
+
+#: ../includes/additional_functions.php:70
+msgid "Add image(s)"
+msgstr ""
+
+#: ../includes/additional_functions.php:126
+msgid "Video URL"
+msgstr ""
+
+#: ../includes/breadcrumbs.php:7
+msgid "Posts Tagged "
+msgstr ""
+
+#: ../includes/breadcrumbs.php:9
+#: ../includes/breadcrumbs.php:11
+#: ../includes/breadcrumbs.php:13
+msgid "Posts made in"
+msgstr ""
+
+#: ../includes/breadcrumbs.php:15
+msgid "Search results for"
+msgstr ""
+
+#: ../includes/breadcrumbs.php:47
+msgid "Posts by "
+msgstr ""
+
+#: ../includes/entry.php:33
+msgid "Read More"
+msgstr ""
+
+#: ../includes/navigation.php:2
+msgid "&laquo; Older Entries"
+msgstr ""
+
+#: ../includes/navigation.php:3
+msgid "Next Entries &raquo;"
+msgstr ""
+
+#: ../includes/no-results.php:3
+msgid "No Results Found"
+msgstr ""
+
+#: ../includes/no-results.php:4
+msgid "The page you requested could not be found. Try refining your search, or use the navigation above to locate the post."
+msgstr ""
+
+#: ../includes/functions/comments.php:12
+#, php-format
+msgid "%1$s"
+msgstr ""
+
+#: ../includes/functions/comments.php:15
+msgid "(Edit)"
+msgstr ""
+
+#: ../includes/functions/comments.php:18
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: ../includes/functions/comments.php:26
+msgid "Reply"
+msgstr ""
+
+#: ../includes/functions/installation.php:1
+msgid "Read DailyJournal Documentation"
+msgstr ""
+
