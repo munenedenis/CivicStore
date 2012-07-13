@@ -14,6 +14,7 @@
 	<meta name="viewport" content="width=device-width">
 
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/coin-slider-styles.css">
 	<style>
 	body {
 	  padding-top: 60px;
@@ -24,6 +25,8 @@
 	<link rel="stylesheet" href="css/style.css">
 
 	<script src="js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+	<script src="js/coin-slider.min.js"></script>
+<!--	<script src="js/coin-slider.js"></script> -->
 </head>
 <body>
 
