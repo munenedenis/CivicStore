@@ -1,598 +1,489 @@
-<?php
-require_once('just-custom-fields/just-custom-fields.php');
+<?php 
+add_action( 'after_setup_theme', 'et_setup_theme' );
+if ( ! function_exists( 'et_setup_theme' ) ){
+	function et_setup_theme(){
+		global $themename, $shortname, $et_store_options_in_one_row;
+		$themename = 'Flexible';
+		$shortname = 'flexible';
+		$et_store_options_in_one_row = true;
+	
+		require_once(TEMPLATEPATH . '/epanel/custom_functions.php'); 
 
-/**
- * Twenty Eleven functions and definitions
- *
- * Sets up the theme and provides some helper functions. Some helper functions
- * are used in the theme as custom template tags. Others are attached to action and
- * filter hooks in WordPress to change core functionality.
- *
- * The first function, twentyeleven_setup(), sets up the theme by registering support
- * for various features in WordPress, such as post thumbnails, navigation menus, and the like.
- *
- * When using a child theme (see http://codex.wordpress.org/Theme_Development and
- * http://codex.wordpress.org/Child_Themes), you can override certain functions
- * (those wrapped in a function_exists() call) by defining them first in your child theme's
- * functions.php file. The child theme's functions.php file is included before the parent
- * theme's file, so the child theme functions would be used.
- *
- * Functions that are not pluggable (not wrapped in function_exists()) are instead attached
- * to a filter or action hook. The hook can be removed by using remove_action() or
- * remove_filter() and you can attach your own function to the hook.
- *
- * We can remove the parent theme's hook only after it is attached, which means we need to
- * wait until setting up the child theme:
- *
- * <code>
- * add_action( 'after_setup_theme', 'my_child_theme_setup' );
- * function my_child_theme_setup() {
- *     // We are providing our own filter for excerpt_length (or using the unfiltered value)
- *     remove_filter( 'excerpt_length', 'twentyeleven_excerpt_length' );
- *     ...
- * }
- * </code>
- *
- * For more information on hooks, actions, and filters, see http://codex.wordpress.org/Plugin_API.
- *
- * @package WordPress
- * @subpackage Twenty_Eleven
- * @since Twenty Eleven 1.0
- */
+		require_once(TEMPLATEPATH . '/includes/functions/comments.php'); 
 
-/**
- * Set the content width based on the theme's design and stylesheet.
- */
-if ( ! isset( $content_width ) )
-	$content_width = 584;
+		require_once(TEMPLATEPATH . '/includes/functions/sidebars.php'); 
 
-/**
- * Tell WordPress to run twentyeleven_setup() when the 'after_setup_theme' hook is run.
- */
-add_action( 'after_setup_theme', 'twentyeleven_setup' );
+		load_theme_textdomain('Flexible',get_template_directory().'/lang');
 
-if ( ! function_exists( 'twentyeleven_setup' ) ):
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which runs
- * before the init hook. The init hook is too late for some features, such as indicating
- * support post thumbnails.
- *
- * To override twentyeleven_setup() in a child theme, add your own twentyeleven_setup to your child theme's
- * functions.php file.
- *
- * @uses load_theme_textdomain() For translation/localization support.
- * @uses add_editor_style() To style the visual editor.
- * @uses add_theme_support() To add support for post thumbnails, automatic feed links, and Post Formats.
- * @uses register_nav_menus() To add support for navigation menus.
- * @uses add_custom_background() To add support for a custom background.
- * @uses add_custom_image_header() To add support for a custom header.
- * @uses register_default_headers() To register the default custom header images provided with the theme.
- * @uses set_post_thumbnail_size() To set a custom post thumbnail size.
- *
- * @since Twenty Eleven 1.0
- */
-function twentyeleven_setup() {
+		require_once(TEMPLATEPATH . '/epanel/options_flexible.php');
 
-	/* Make Twenty Eleven available for translation.
-	 * Translations can be added to the /languages/ directory.
-	 * If you're building a theme based on Twenty Eleven, use a find and replace
-	 * to change 'twentyeleven' to the name of your theme in all the template files.
-	 */
-	load_theme_textdomain( 'twentyeleven', get_template_directory() . '/languages' );
+		require_once(TEMPLATEPATH . '/epanel/core_functions.php'); 
 
-	$locale = get_locale();
-	$locale_file = get_template_directory() . "/languages/$locale.php";
-	if ( is_readable( $locale_file ) )
-		require_once( $locale_file );
+		require_once(TEMPLATEPATH . '/epanel/post_thumbnails_flexible.php');
+		
+		include(TEMPLATEPATH . '/includes/widgets.php');
+		
+		require_once(TEMPLATEPATH . '/includes/additional_functions.php');
+		
+		add_action( 'init', 'et_register_main_menus' );
+		
+		add_action( 'wp_enqueue_scripts', 'et_load_flexible_scripts' );
+		
+		add_action( 'wp_enqueue_scripts', 'et_add_google_fonts' );
+		
+		add_action( 'wp_head', 'et_add_viewport_meta' );
+		
+		add_action( 'et_header_menu', 'et_add_mobile_navigation' );
+		
+		add_action('init', 'et_portfolio_posttype_register');
+		
+		add_action( 'init', 'et_create_portfolio_taxonomies', 0 );
+		
+		add_action( 'pre_get_posts', 'et_home_posts_query' );
+		
+		add_action('et_header_top','et_flexible_control_panel');
+		
+		add_action( 'wp_head', 'et_set_bg_properties' );
+		
+		add_action( 'wp_head', 'et_set_font_properties' );
+		
+		add_action( 'wp_ajax_nopriv_et_show_ajax_project', 'et_show_ajax_project' );
+		
+		add_action( 'wp_ajax_et_show_ajax_project', 'et_show_ajax_project' );
+		
+		add_filter( 'wp_page_menu_args', 'et_add_home_link' );
+		
+		add_filter( 'et_get_additional_color_scheme', 'et_remove_additional_stylesheet' );
+	}
+}
 
-	// This theme styles the visual editor with editor-style.css to match the theme style.
-	add_editor_style();
-
-	// Load up our theme options page and related code.
-	require( get_template_directory() . '/inc/theme-options.php' );
-
-	// Grab Twenty Eleven's Ephemera widget.
-	require( get_template_directory() . '/inc/widgets.php' );
-
-	// Add default posts and comments RSS feed links to <head>.
-	add_theme_support( 'automatic-feed-links' );
-
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menu( 'primary', __( 'Primary Menu', 'twentyeleven' ) );
-
-	// Add support for a variety of post formats
-	add_theme_support( 'post-formats', array( 'aside', 'link', 'gallery', 'status', 'quote', 'image' ) );
-
-	// Add support for custom backgrounds
-	add_custom_background();
-
-	// This theme uses Featured Images (also known as post thumbnails) for per-post/per-page Custom Header images
-	add_theme_support( 'post-thumbnails' );
-
-	// The next four constants set how Twenty Eleven supports custom headers.
-
-	// The default header text color
-	define( 'HEADER_TEXTCOLOR', '000' );
-
-	// By leaving empty, we allow for random image rotation.
-	define( 'HEADER_IMAGE', '' );
-
-	// The height and width of your custom header.
-	// Add a filter to twentyeleven_header_image_width and twentyeleven_header_image_height to change these values.
-	define( 'HEADER_IMAGE_WIDTH', apply_filters( 'twentyeleven_header_image_width', 1000 ) );
-	define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'twentyeleven_header_image_height', 288 ) );
-
-	// We'll be using post thumbnails for custom header images on posts and pages.
-	// We want them to be the size of the header image that we just defined
-	// Larger images will be auto-cropped to fit, smaller ones will be ignored. See header.php.
-	set_post_thumbnail_size( HEADER_IMAGE_WIDTH, HEADER_IMAGE_HEIGHT, true );
-
-	// Add Twenty Eleven's custom image sizes
-	add_image_size( 'large-feature', HEADER_IMAGE_WIDTH, HEADER_IMAGE_HEIGHT, true ); // Used for large feature (header) images
-	add_image_size( 'small-feature', 500, 300 ); // Used for featured posts if a large-feature doesn't exist
-
-	// Turn on random header image rotation by default.
-	add_theme_support( 'custom-header', array( 'random-default' => true ) );
-
-	// Add a way for the custom header to be styled in the admin panel that controls
-	// custom headers. See twentyeleven_admin_header_style(), below.
-	add_custom_image_header( 'twentyeleven_header_style', 'twentyeleven_admin_header_style', 'twentyeleven_admin_header_image' );
-
-	// ... and thus ends the changeable header business.
-
-	// Default custom headers packaged with the theme. %s is a placeholder for the theme template directory URI.
-	register_default_headers( array(
-		'wheel' => array(
-			'url' => '%s/images/headers/wheel.jpg',
-			'thumbnail_url' => '%s/images/headers/wheel-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Wheel', 'twentyeleven' )
-		),
-		'shore' => array(
-			'url' => '%s/images/headers/shore.jpg',
-			'thumbnail_url' => '%s/images/headers/shore-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Shore', 'twentyeleven' )
-		),
-		'trolley' => array(
-			'url' => '%s/images/headers/trolley.jpg',
-			'thumbnail_url' => '%s/images/headers/trolley-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Trolley', 'twentyeleven' )
-		),
-		'pine-cone' => array(
-			'url' => '%s/images/headers/pine-cone.jpg',
-			'thumbnail_url' => '%s/images/headers/pine-cone-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Pine Cone', 'twentyeleven' )
-		),
-		'chessboard' => array(
-			'url' => '%s/images/headers/chessboard.jpg',
-			'thumbnail_url' => '%s/images/headers/chessboard-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Chessboard', 'twentyeleven' )
-		),
-		'lanterns' => array(
-			'url' => '%s/images/headers/lanterns.jpg',
-			'thumbnail_url' => '%s/images/headers/lanterns-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Lanterns', 'twentyeleven' )
-		),
-		'willow' => array(
-			'url' => '%s/images/headers/willow.jpg',
-			'thumbnail_url' => '%s/images/headers/willow-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Willow', 'twentyeleven' )
-		),
-		'hanoi' => array(
-			'url' => '%s/images/headers/hanoi.jpg',
-			'thumbnail_url' => '%s/images/headers/hanoi-thumbnail.jpg',
-			/* translators: header image description */
-			'description' => __( 'Hanoi Plant', 'twentyeleven' )
+function et_register_main_menus() {
+	register_nav_menus(
+		array(
+			'primary-menu' => __( 'Primary Menu', 'Flexible' )
 		)
-	) );
-}
-endif; // twentyeleven_setup
-
-if ( ! function_exists( 'twentyeleven_header_style' ) ) :
-/**
- * Styles the header image and text displayed on the blog
- *
- * @since Twenty Eleven 1.0
- */
-function twentyeleven_header_style() {
-
-	// If no custom options for text are set, let's bail
-	// get_header_textcolor() options: HEADER_TEXTCOLOR is default, hide text (returns 'blank') or any hex value
-	if ( HEADER_TEXTCOLOR == get_header_textcolor() )
-		return;
-	// If we get this far, we have custom styles. Let's do this.
-	?>
-	<style type="text/css">
-	<?php
-		// Has the text been hidden?
-		if ( 'blank' == get_header_textcolor() ) :
-	?>
-		#site-title,
-		#site-description {
-			position: absolute !important;
-			clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-			clip: rect(1px, 1px, 1px, 1px);
-		}
-	<?php
-		// If the user has set a custom color for the text use that
-		else :
-	?>
-		#site-title a,
-		#site-description {
-			color: #<?php echo get_header_textcolor(); ?> !important;
-		}
-	<?php endif; ?>
-	</style>
-	<?php
-}
-endif; // twentyeleven_header_style
-
-if ( ! function_exists( 'twentyeleven_admin_header_style' ) ) :
-/**
- * Styles the header image displayed on the Appearance > Header admin panel.
- *
- * Referenced via add_custom_image_header() in twentyeleven_setup().
- *
- * @since Twenty Eleven 1.0
- */
-function twentyeleven_admin_header_style() {
-?>
-	<style type="text/css">
-	.appearance_page_custom-header #headimg {
-		border: none;
-	}
-	#headimg h1,
-	#desc {
-		font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
-	}
-	#headimg h1 {
-		margin: 0;
-	}
-	#headimg h1 a {
-		font-size: 32px;
-		line-height: 36px;
-		text-decoration: none;
-	}
-	#desc {
-		font-size: 14px;
-		line-height: 23px;
-		padding: 0 0 3em;
-	}
-	<?php
-		// If the user has set a custom color for the text use that
-		if ( get_header_textcolor() != HEADER_TEXTCOLOR ) :
-	?>
-		#site-title a,
-		#site-description {
-			color: #<?php echo get_header_textcolor(); ?>;
-		}
-	<?php endif; ?>
-	#headimg img {
-		max-width: 1000px;
-		height: auto;
-		width: 100%;
-	}
-	</style>
-<?php
-}
-endif; // twentyeleven_admin_header_style
-
-if ( ! function_exists( 'twentyeleven_admin_header_image' ) ) :
-/**
- * Custom header image markup displayed on the Appearance > Header admin panel.
- *
- * Referenced via add_custom_image_header() in twentyeleven_setup().
- *
- * @since Twenty Eleven 1.0
- */
-function twentyeleven_admin_header_image() { ?>
-	<div id="headimg">
-		<?php
-		if ( 'blank' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) || '' == get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) )
-			$style = ' style="display:none;"';
-		else
-			$style = ' style="color:#' . get_theme_mod( 'header_textcolor', HEADER_TEXTCOLOR ) . ';"';
-		?>
-		<h1><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-		<div id="desc"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></div>
-		<?php $header_image = get_header_image();
-		if ( ! empty( $header_image ) ) : ?>
-			<img src="<?php echo esc_url( $header_image ); ?>" alt="" />
-		<?php endif; ?>
-	</div>
-<?php }
-endif; // twentyeleven_admin_header_image
-
-/**
- * Sets the post excerpt length to 40 words.
- *
- * To override this length in a child theme, remove the filter and add your own
- * function tied to the excerpt_length filter hook.
- */
-function twentyeleven_excerpt_length( $length ) {
-	return 40;
-}
-add_filter( 'excerpt_length', 'twentyeleven_excerpt_length' );
-
-/**
- * Returns a "Continue Reading" link for excerpts
- */
-function twentyeleven_continue_reading_link() {
-	return ' <a href="'. esc_url( get_permalink() ) . '">' . __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentyeleven' ) . '</a>';
+	);
 }
 
-/**
- * Replaces "[...]" (appended to automatically generated excerpts) with an ellipsis and twentyeleven_continue_reading_link().
- *
- * To override this in a child theme, remove the filter and add your own
- * function tied to the excerpt_more filter hook.
- */
-function twentyeleven_auto_excerpt_more( $more ) {
-	return ' &hellip;' . twentyeleven_continue_reading_link();
-}
-add_filter( 'excerpt_more', 'twentyeleven_auto_excerpt_more' );
-
-/**
- * Adds a pretty "Continue Reading" link to custom post excerpts.
- *
- * To override this link in a child theme, remove the filter and add your own
- * function tied to the get_the_excerpt filter hook.
- */
-function twentyeleven_custom_excerpt_more( $output ) {
-	if ( has_excerpt() && ! is_attachment() ) {
-		$output .= twentyeleven_continue_reading_link();
-	}
-	return $output;
-}
-add_filter( 'get_the_excerpt', 'twentyeleven_custom_excerpt_more' );
-
-/**
- * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
- */
-function twentyeleven_page_menu_args( $args ) {
+function et_add_home_link( $args ) {
+	// add Home link to the custom menu WP-Admin page
 	$args['show_home'] = true;
 	return $args;
 }
-add_filter( 'wp_page_menu_args', 'twentyeleven_page_menu_args' );
 
-/**
- * Register our sidebars and widgetized areas. Also register the default Epherma widget.
- *
- * @since Twenty Eleven 1.0
- */
-function twentyeleven_widgets_init() {
-
-	register_widget( 'Twenty_Eleven_Ephemera_Widget' );
-
-	register_sidebar( array(
-		'name' => __( 'Main Sidebar', 'twentyeleven' ),
-		'id' => 'sidebar-1',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => "</aside>",
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
-
-	register_sidebar( array(
-		'name' => __( 'Showcase Sidebar', 'twentyeleven' ),
-		'id' => 'sidebar-2',
-		'description' => __( 'The sidebar for the optional Showcase Template', 'twentyeleven' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => "</aside>",
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
-
-	register_sidebar( array(
-		'name' => __( 'Footer Area One', 'twentyeleven' ),
-		'id' => 'sidebar-3',
-		'description' => __( 'An optional widget area for your site footer', 'twentyeleven' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => "</aside>",
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
-
-	register_sidebar( array(
-		'name' => __( 'Footer Area Two', 'twentyeleven' ),
-		'id' => 'sidebar-4',
-		'description' => __( 'An optional widget area for your site footer', 'twentyeleven' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => "</aside>",
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
-
-	register_sidebar( array(
-		'name' => __( 'Footer Area Three', 'twentyeleven' ),
-		'id' => 'sidebar-5',
-		'description' => __( 'An optional widget area for your site footer', 'twentyeleven' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => "</aside>",
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-	) );
-}
-add_action( 'widgets_init', 'twentyeleven_widgets_init' );
-
-if ( ! function_exists( 'twentyeleven_content_nav' ) ) :
-/**
- * Display navigation to next/previous pages when applicable
- */
-function twentyeleven_content_nav( $nav_id ) {
-	global $wp_query;
-
-	if ( $wp_query->max_num_pages > 1 ) : ?>
-		<nav id="<?php echo $nav_id; ?>">
-			<h3 class="assistive-text"><?php _e( 'Post navigation', 'twentyeleven' ); ?></h3>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'twentyeleven' ) ); ?></div>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'twentyeleven' ) ); ?></div>
-		</nav><!-- #nav-above -->
-	<?php endif;
-}
-endif; // twentyeleven_content_nav
-
-/**
- * Return the URL for the first link found in the post content.
- *
- * @since Twenty Eleven 1.0
- * @return string|bool URL or false when no link is present.
- */
- 
- 
-function twentyeleven_url_grabber() {
-	if ( ! preg_match( '/<a\s[^>]*?href=[\'"](.+?)[\'"]/is', get_the_content(), $matches ) )
-		return false;
-
-	return esc_url_raw( $matches[1] );
-}
-
-/**
- * Count the number of footer sidebars to enable dynamic classes for the footer
- */
-function twentyeleven_footer_sidebar_class() {
-	$count = 0;
-
-	if ( is_active_sidebar( 'sidebar-3' ) )
-		$count++;
-
-	if ( is_active_sidebar( 'sidebar-4' ) )
-		$count++;
-
-	if ( is_active_sidebar( 'sidebar-5' ) )
-		$count++;
-
-	$class = '';
-
-	switch ( $count ) {
-		case '1':
-			$class = 'one';
-			break;
-		case '2':
-			$class = 'two';
-			break;
-		case '3':
-			$class = 'three';
-			break;
+function et_load_flexible_scripts(){
+	if ( !is_admin() ){
+		$template_dir = get_template_directory_uri();
+		
+		wp_enqueue_script('superfish', $template_dir . '/js/superfish.js', array('jquery'), '1.0', true);
+		wp_enqueue_script('easing', $template_dir . '/js/jquery.easing.1.3.js', array('jquery'), '1.0', true);
+		wp_enqueue_script('flexslider', $template_dir . '/js/jquery.flexslider-min.js', array('jquery'), '1.0', true);
+		wp_enqueue_script('fitvids', $template_dir . '/js/jquery.fitvids.js', array('jquery'), '1.0', true);
+		wp_enqueue_script('quicksand', $template_dir . '/js/jquery.quicksand.js', array('jquery'), '1.0', true);
+		wp_enqueue_script('custom_script', $template_dir . '/js/custom.js', array('jquery'), '1.0', true);
+		wp_localize_script( 'custom_script', 'etsettings', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+		
+		$admin_access = apply_filters( 'et_showcontrol_panel', current_user_can('switch_themes') );
+		if ( $admin_access && et_get_option('flexible_show_control_panel') == 'on' ) {
+			wp_enqueue_script('et_colorpicker', $template_dir . '/epanel/js/colorpicker.js', array('jquery'), '1.0', true);
+			wp_enqueue_script('et_eye', $template_dir . '/epanel/js/eye.js', array('jquery'), '1.0', true);
+			wp_enqueue_script('et_cookie', $template_dir . '/js/jquery.cookie.js', array('jquery'), '1.0', true);
+			wp_enqueue_script('et_control_panel', $template_dir . '/js/et_control_panel.js', array('jquery'), '1.0', true);
+			wp_localize_script( 'et_control_panel', 'et_control_panel', apply_filters( 'et_control_panel_settings', array( 'theme_folder' => $template_dir ) ) );
+		}
 	}
-
-	if ( $class )
-		echo 'class="' . $class . '"';
+	if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' );
 }
 
-if ( ! function_exists( 'twentyeleven_comment' ) ) :
-/**
- * Template for comments and pingbacks.
- *
- * To override this walker in a child theme without modifying the comments template
- * simply create your own twentyeleven_comment(), and that function will be used instead.
- *
- * Used as a callback by wp_list_comments() for displaying the comments.
- *
- * @since Twenty Eleven 1.0
- */
-function twentyeleven_comment( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment;
-	switch ( $comment->comment_type ) :
-		case 'pingback' :
-		case 'trackback' :
-	?>
-	<li class="post pingback">
-		<p><?php _e( 'Pingback:', 'twentyeleven' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?></p>
-	<?php
-			break;
-		default :
-	?>
-	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-		<article id="comment-<?php comment_ID(); ?>" class="comment">
-			<footer class="comment-meta">
-				<div class="comment-author vcard">
-					<?php
-						$avatar_size = 68;
-						if ( '0' != $comment->comment_parent )
-							$avatar_size = 39;
-
-						echo get_avatar( $comment, $avatar_size );
-
-						/* translators: 1: comment author, 2: date and time */
-						printf( __( '%1$s on %2$s <span class="says">said:</span>', 'twentyeleven' ),
-							sprintf( '<span class="fn">%s</span>', get_comment_author_link() ),
-							sprintf( '<a href="%1$s"><time pubdate datetime="%2$s">%3$s</time></a>',
-								esc_url( get_comment_link( $comment->comment_ID ) ),
-								get_comment_time( 'c' ),
-								/* translators: 1: date, 2: time */
-								sprintf( __( '%1$s at %2$s', 'twentyeleven' ), get_comment_date(), get_comment_time() )
-							)
-						);
-					?>
-
-					<?php edit_comment_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
-				</div><!-- .comment-author .vcard -->
-
-				<?php if ( $comment->comment_approved == '0' ) : ?>
-					<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'twentyeleven' ); ?></em>
-					<br />
-				<?php endif; ?>
-
-			</footer>
-
-			<div class="comment-content"><?php comment_text(); ?></div>
-
-			<div class="reply">
-				<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply <span>&darr;</span>', 'twentyeleven' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-			</div><!-- .reply -->
-		</article><!-- #comment-## -->
-
-	<?php
-			break;
-	endswitch;
+function et_add_google_fonts(){
+	wp_enqueue_style( 'google_font_open_sans', 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700&amp;subset=latin,latin-ext,cyrillic' );
 }
-endif; // ends check for twentyeleven_comment()
 
-if ( ! function_exists( 'twentyeleven_posted_on' ) ) :
-/**
- * Prints HTML with meta information for the current post-date/time and author.
- * Create your own twentyeleven_posted_on to override in a child theme
- *
- * @since Twenty Eleven 1.0
- */
-function twentyeleven_posted_on() {
-	printf( __( '<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'twentyeleven' ),
-		esc_url( get_permalink() ),
-		esc_attr( get_the_time() ),
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
-		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-		esc_attr( sprintf( __( 'View all posts by %s', 'twentyeleven' ), get_the_author() ) ),
-		get_the_author()
+function et_add_viewport_meta(){
+	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />';
+}
+
+function et_add_mobile_navigation(){
+	echo '<a href="#" id="mobile_nav" class="closed">' . '<span></span>' . esc_html__( 'Navigation Menu', 'Flexible' ) . '</a>';
+}
+
+function et_remove_additional_stylesheet( $stylesheet ){
+	global $default_colorscheme;
+	return $default_colorscheme;
+}
+
+function et_create_portfolio_taxonomies(){
+	$labels = array(
+		'name' => _x( 'Categories', 'taxonomy general name', 'Flexible' ),
+		'singular_name' => _x( 'Category', 'taxonomy singular name', 'Flexible' ),
+		'search_items' =>  __( 'Search Categories', 'Flexible' ),
+		'all_items' => __( 'All Categories', 'Flexible' ),
+		'parent_item' => __( 'Parent Category', 'Flexible' ),
+		'parent_item_colon' => __( 'Parent Category:', 'Flexible' ),
+		'edit_item' => __( 'Edit Category', 'Flexible' ), 
+		'update_item' => __( 'Update Category', 'Flexible' ),
+		'add_new_item' => __( 'Add New Category', 'Flexible' ),
+		'new_item_name' => __( 'New Category Name', 'Flexible' ),
+		'menu_name' => __( 'Category', 'Flexible' )
 	);
+
+	register_taxonomy('project_category',array('project'), array(
+		'hierarchical' => true,
+		'labels' => $labels,
+		'show_ui' => true,
+		'query_var' => true,
+		'rewrite' => apply_filters( 'et_portfolio_category_rewrite_args', array( 'slug' => 'portfolio' ) )
+	));
 }
-endif;
 
-/**
- * Adds two classes to the array of body classes.
- * The first is if the site has only had one author with published posts.
- * The second is if a singular post being displayed
- *
- * @since Twenty Eleven 1.0
- */
-function twentyeleven_body_classes( $classes ) {
-
-	if ( function_exists( 'is_multi_author' ) && ! is_multi_author() )
-		$classes[] = 'single-author';
-
-	if ( is_singular() && ! is_home() && ! is_page_template( 'showcase.php' ) && ! is_page_template( 'sidebar-page.php' ) )
-		$classes[] = 'singular';
-
-	return $classes;
+function et_portfolio_posttype_register() {
+	$labels = array(
+		'name' => _x('Projects', 'post type general name','Flexible'),
+		'singular_name' => _x('Project', 'post type singular name','Flexible'),
+		'add_new' => _x('Add New', 'project item','Flexible'),
+		'add_new_item' => __('Add New Project','Flexible'),
+		'edit_item' => __('Edit Project','Flexible'),
+		'new_item' => __('New Project','Flexible'),
+		'all_items' => __('All Projects','Flexible'),
+		'view_item' => __('View Project','Flexible'),
+		'search_items' => __('Search Projects','Flexible'),
+		'not_found' =>  __('Nothing found','Flexible'),
+		'not_found_in_trash' => __('Nothing found in Trash','Flexible'),
+		'parent_item_colon' => ''
+	);
+ 
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'query_var' => true,
+		'rewrite' => apply_filters( 'et_portfolio_posttype_rewrite_args', array( 'slug' => 'project', 'with_front' => false ) ),
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'menu_position' => null,
+		'supports' => array('title','editor','thumbnail','excerpt','comments','revisions','custom-fields')
+	);
+ 
+	register_post_type( 'project' , $args );
 }
-add_filter( 'body_class', 'twentyeleven_body_classes' );
 
+function et_home_posts_query( $query = '' ) {
+	global $paged;
+	if ( ! is_home() || ! is_a( $query, 'WP_Query' ) || ! $query->is_main_query() ) return;
+		
+	$query->set( 'posts_per_page', et_get_option( 'flexible_homepage_posts', '6' ) );
+	
+	$exclude_categories = et_get_option( 'flexible_exlcats_recent', false );
+	if ( $exclude_categories ) $query->set( 'category__not_in', $exclude_categories );
+}
+
+if ( ! function_exists( 'et_list_pings' ) ){
+	function et_list_pings($comment, $args, $depth) {
+		$GLOBALS['comment'] = $comment; ?>
+		<li id="comment-<?php comment_ID(); ?>"><?php comment_author_link(); ?> - <?php comment_excerpt(); ?>
+	<?php }
+}
+
+if ( ! function_exists( 'et_get_the_author_posts_link' ) ){
+	function et_get_the_author_posts_link(){
+		global $authordata, $themename;
+		
+		$link = sprintf(
+			'<a href="%1$s" title="%2$s" rel="author">%3$s</a>',
+			get_author_posts_url( $authordata->ID, $authordata->user_nicename ),
+			esc_attr( sprintf( __( 'Posts by %s', $themename ), get_the_author() ) ),
+			get_the_author()
+		);
+		return apply_filters( 'the_author_posts_link', $link );
+	}
+}
+
+if ( ! function_exists( 'et_get_comments_popup_link' ) ){
+	function et_get_comments_popup_link( $zero = false, $one = false, $more = false ){
+		global $themename;
+		
+		$id = get_the_ID();
+		$number = get_comments_number( $id );
+
+		if ( 0 == $number && !comments_open() && !pings_open() ) return;
+		
+		if ( $number > 1 )
+			$output = str_replace('%', number_format_i18n($number), ( false === $more ) ? __('% Comments', $themename) : $more);
+		elseif ( $number == 0 )
+			$output = ( false === $zero ) ? __('No Comments',$themename) : $zero;
+		else // must be one
+			$output = ( false === $one ) ? __('1 Comment', $themename) : $one;
+			
+		return '<span class="comments-number">' . '<a href="' . esc_url( get_permalink() . '#respond' ) . '">' . apply_filters('comments_number', $output, $number) . '</a>' . '</span>';
+	}
+}
+
+if ( ! function_exists( 'et_postinfo_meta' ) ){
+	function et_postinfo_meta( $postinfo, $date_format, $comment_zero, $comment_one, $comment_more ){
+		global $themename;
+		
+		$postinfo_meta = '';
+		
+		if ( in_array( 'author', $postinfo ) ){
+			$postinfo_meta .= ' ' . esc_html__('by',$themename) . ' ' . et_get_the_author_posts_link();
+		}
+			
+		if ( in_array( 'date', $postinfo ) )
+			$postinfo_meta .= ' ' . esc_html__('on',$themename) . ' ' . get_the_time( $date_format );
+			
+		if ( in_array( 'categories', $postinfo ) )
+			$postinfo_meta .= ' ' . esc_html__('in',$themename) . ' ' . get_the_category_list(', ');
+			
+		if ( in_array( 'comments', $postinfo ) )
+			$postinfo_meta .= ' | ' . et_get_comments_popup_link( $comment_zero, $comment_one, $comment_more );
+			
+		if ( '' != $postinfo_meta ) $postinfo_meta = __('Posted',$themename) . ' ' . $postinfo_meta;	
+			
+		echo $postinfo_meta;
+	}
+}
+
+function et_show_ajax_project(){
+	global $wp_embed;
+	
+	$project_id = (int) $_POST['et_project_id'];
+	
+	$portfolio_args = array(
+		'post_type' => 'project',
+		'p' => $project_id
+	);
+	$portfolio_query = new WP_Query( apply_filters( 'et_ajax_portfolio_args', $portfolio_args ) );
+	while ( $portfolio_query->have_posts() ) : $portfolio_query->the_post();
+		global $post;
+		$width = apply_filters( 'et_ajax_media_width', 600 );
+		$height = apply_filters( 'et_ajax_media_height', 480 );
+		
+		$media = get_post_meta( $post->ID, '_et_used_images', true );
+		echo '<div class="et_media">';
+			if ( $media ){
+				echo '<div class="flexslider"><ul class="slides">';
+				foreach( (array) $media as $et_media ){
+					echo '<li class="slide">';
+					
+					if ( is_numeric( $et_media ) ) {
+						$et_fullimage_array = wp_get_attachment_image_src( $et_media, 'full' );
+						if ( $et_fullimage_array ){
+							$et_fullimage = $et_fullimage_array[0];
+							echo '<img src="' . esc_url( et_new_thumb_resize( et_multisite_thumbnail($et_fullimage ), $width, $height, '', true ) ) . '" width="' . esc_attr( $width ) . '" height="' . esc_attr( $height ) . '" />';
+						}
+					} else {
+						$video_embed = $wp_embed->shortcode( '', $et_media );
+
+						$video_embed = preg_replace('/<embed /','<embed wmode="transparent" ',$video_embed);
+						$video_embed = preg_replace('/<\/object>/','<param name="wmode" value="transparent" /></object>',$video_embed); 
+						$video_embed = preg_replace("/height=\"[0-9]*\"/", "height={$height}", $video_embed);
+						$video_embed = preg_replace("/width=\"[0-9]*\"/", "width={$width}", $video_embed);
+						
+						echo $video_embed;								
+					}
+					echo '</li>';
+				}
+				echo '</ul></div>';
+			} else {
+				$thumb = '';
+				$classtext = '';
+				$titletext = get_the_title();
+				$thumbnail = get_thumbnail($width,$height,$classtext,$titletext,$titletext,false,'Ajaximage');
+				$thumb = $thumbnail["thumb"];
+				echo '<a href="'. esc_url( get_permalink() ) . '">';
+					print_thumbnail($thumb, $thumbnail["use_timthumb"], $titletext, $width, $height, $classtext);
+				echo '</a>';
+			}
+		echo '</div> <!-- end .et_media -->';
+		
+		echo 	'<div class="et_media_description">' . 
+					'<h2 class="title">' . '<a href="' . get_permalink() . '">' . get_the_title() . '</a>' . '</h2>' .
+					truncate_post( 560, false );
+
+		echo '</div> <!-- end .et_media_description -->';
+		
+		echo '<a class="more" href="' . get_permalink() . '">' . __( 'More info &raquo;', 'Flexible' ) . '</a>';
+	endwhile; 
+	wp_reset_postdata();
+	
+	die();
+}
+
+
+function et_flexible_control_panel(){
+	global $themename;
+	
+	$admin_access = apply_filters( 'et_showcontrol_panel', current_user_can('switch_themes') );
+	if ( !$admin_access ) return;
+	if ( et_get_option('flexible_show_control_panel') <> 'on' ) return;
+	global $et_bg_texture_urls, $et_google_fonts; ?>
+	<div id="et-control-panel">
+		<div id="control-panel-main">
+			<a id="et-control-close" href="#"></a>
+			<div id="et-control-inner">
+				<h3 class="control_title"><?php esc_html_e('Example Colors',$themename); ?></h3>
+				<a href="#" class="et-control-colorpicker" id="et-control-background"></a>
+				
+				<div class="clear"></div>
+				
+				<?php 
+					$sample_colors = array( '6a8e94', '8da49c', 'b0b083', '859a7c', 'c6bea6', 'b08383', 'a4869d', 'f5f5f5', '4e4e4e', '556f6a', '6f5555', '6f6755' );
+					for ( $i=1; $i<=12; $i++ ) { ?>
+						<a class="et-sample-setting" id="et-sample-color<?php echo $i; ?>" href="#" rel="<?php echo esc_attr($sample_colors[$i-1]); ?>" title="#<?php echo esc_attr($sample_colors[$i-1]); ?>"><span class="et-sample-overlay"></span></a>
+				<?php } ?>
+				<p><?php esc_html_e('or define your own in ePanel',$themename); ?></p>
+				
+				<h3 class="control_title"><?php esc_html_e('Texture Overlays',$themename); ?></h3>
+				<div class="clear"></div>
+				
+				<?php 
+					$sample_textures = $et_bg_texture_urls;
+					for ( $i=1; $i<=count($et_bg_texture_urls); $i++ ) { ?>
+						<a title="<?php echo esc_attr($sample_textures[$i-1]); ?>" class="et-sample-setting et-texture" id="et-sample-texture<?php echo $i; ?>" href="#" rel="bg<?php echo $i+1; ?>"><span class="et-sample-overlay"></span></a>
+				<?php } ?>
+				
+				<p><?php esc_html_e('or define your own in ePanel',$themename); ?></p>
+				
+				<?php 
+					$google_fonts = $et_google_fonts;
+					$font_setting = 'Open+Sans';
+					$body_font_setting = 'Open+Sans';
+					if ( isset( $_COOKIE['et_flexible_header_font'] ) ) $font_setting = $_COOKIE['et_flexible_header_font'];
+					if ( isset( $_COOKIE['et_flexible_body_font'] ) ) $body_font_setting = $_COOKIE['et_flexible_body_font'];
+				?>
+				
+				<h3 class="control_title"><?php esc_html_e('Fonts',$themename); ?></h3>
+				<div class="clear"></div>
+				
+				<label for="et_control_header_font"><?php esc_html_e('Header',$themename); ?>
+					<select name="et_control_header_font" id="et_control_header_font">
+						<?php foreach( $google_fonts as $google_font ) { ?>
+							<?php $encoded_value = urlencode($google_font); ?>
+							<option value="<?php echo esc_attr($encoded_value); ?>" <?php selected( $font_setting, $encoded_value ); ?>><?php echo esc_html($google_font); ?></option>
+						<?php } ?>
+					</select>
+				</label>
+				<a href="#" class="et-control-colorpicker et-font-control" id="et-control-headerfont_bg"></a>
+				<div class="clear"></div>
+				
+				<label for="et_control_body_font"><?php esc_html_e('Body',$themename); ?>
+					<select name="et_control_body_font" id="et_control_body_font">
+						<?php foreach( $google_fonts as $google_font ) { ?>
+							<?php $encoded_value = urlencode($google_font); ?>
+							<option value="<?php echo esc_attr($encoded_value); ?>" <?php selected( $body_font_setting, $encoded_value ); ?>><?php echo esc_html($google_font); ?></option>
+						<?php } ?>
+					</select>
+				</label>
+				<a href="#" class="et-control-colorpicker et-font-control" id="et-control-bodyfont_bg"></a>
+				<div class="clear"></div>
+				
+			</div> <!-- end #et-control-inner -->
+		</div> <!-- end #control-panel-main -->
+	</div> <!-- end #et-control-panel -->
+<?php
+}
+
+function et_set_bg_properties(){
+	global $et_bg_texture_urls;
+	
+	$bgcolor = '';
+	$bgcolor = ( isset( $_COOKIE['et_flexible_bgcolor'] ) && et_get_option('flexible_show_control_panel') == 'on' ) ? $_COOKIE['et_flexible_bgcolor'] : et_get_option('flexible_bgcolor');
+	
+	$bgtexture_url = '';
+	$bgimage_url = '';
+	if ( et_get_option('flexible_bgimage') == '' ) {
+		if ( isset( $_COOKIE['et_flexible_texture_url'] ) && et_get_option('flexible_show_control_panel') == 'on' ) $bgtexture_url =  $_COOKIE['et_flexible_texture_url'];
+		else {
+			$bgtexture_url = et_get_option('flexible_bgtexture_url');
+			if ( $bgtexture_url == 'Default' ) $bgtexture_url = '';
+			else $bgtexture_url = get_bloginfo('template_directory') . '/images/control_panel/body-bg' . ( array_search( $bgtexture_url, $et_bg_texture_urls )+2 ) . '.png';
+		}
+	} else {
+		$bgimage_url = et_get_option('flexible_bgimage');
+	}
+	
+	$style = '';
+	$style .= '<style type="text/css">';
+	if ( $bgcolor <> '' ) $style .= 'body { background-color: #' . esc_attr($bgcolor) . '; }';
+	if ( $bgtexture_url <> '' ) $style .= 'body { background-image: url(' . esc_attr($bgtexture_url) . '); }';
+	if ( $bgimage_url <> '' ) $style .= 'body { background-image: url(' . esc_attr($bgimage_url) . '); background-position: top center; background-repeat: no-repeat; }';
+	$style .= '</style>';
+	
+	if ( $bgcolor <> '' || $bgtexture_url <> '' || $bgimage_url <> '' ) echo $style;
+}
+
+function et_set_font_properties(){
+	$font_style = '';
+	$font_color = '';
+	$font_family = '';
+	$font_color_string = '';
+	
+	if ( isset( $_COOKIE['et_flexible_header_font'] ) && et_get_option('flexible_show_control_panel') == 'on' ) $et_header_font =  $_COOKIE['et_flexible_header_font'];
+	else {
+		$et_header_font = et_get_option('flexible_header_font');
+	}
+	
+	if ( $et_header_font == 'Open+Sans' || $et_header_font == 'Open Sans' ) $et_header_font = '';
+	
+	if ( isset( $_COOKIE['et_flexible_header_font_color'] ) && et_get_option('flexible_show_control_panel') == 'on' ) 	
+		$et_header_font_color =  $_COOKIE['et_flexible_header_font_color'];
+	else 
+		$et_header_font_color = et_get_option('flexible_header_font_color');
+	
+	if ( $et_header_font <> '' || $et_header_font_color <> '' ) {
+		$et_header_font_id = strtolower( str_replace( '+', '_', $et_header_font ) );
+		$et_header_font_id = str_replace( ' ', '_', $et_header_font_id );
+		
+		if ( $et_header_font <> '' ) { 
+			$font_style .= "<link id='" . esc_attr($et_header_font_id) . "' href='" . esc_url( "http://fonts.googleapis.com/css?family=" . $et_header_font ) . "' rel='stylesheet' type='text/css' />";
+			$font_family = "font-family: '" . esc_html(str_replace( '+', ' ', $et_header_font )) . "', Arial, sans-serif !important; ";
+		}
+		
+		if ( $et_header_font_color <> '' ) {
+			$font_color_string = "color: #" . esc_html($et_header_font_color) . "; ";
+		}
+		
+		$font_style .= "<style type='text/css'>h1, h2, h3, h4, h5, h6 { ". $font_family .  " }</style>";
+		$font_style .= "<style type='text/css'>h1, h2, h3, h4, h5, h6 { ". esc_html($font_color_string) .  " }
+		</style>";
+		
+		echo $font_style;
+	}
+	
+	$font_style = '';
+	$font_color = '';
+	$font_family = '';
+	$font_color_string = '';
+	
+	if ( isset( $_COOKIE['et_flexible_body_font'] ) && et_get_option('flexible_show_control_panel') == 'on' ) $et_body_font =  $_COOKIE['et_flexible_body_font'];
+	else {
+		$et_body_font = et_get_option('flexible_body_font');
+	}
+	
+	if ( $et_body_font == 'Open+Sans' ) $et_body_font = '';
+	
+	if ( isset( $_COOKIE['et_flexible_body_font_color'] ) && et_get_option('flexible_show_control_panel') == 'on' ) 	
+		$et_body_font_color =  $_COOKIE['et_flexible_body_font_color'];
+	else 
+		$et_body_font_color = et_get_option('flexible_body_font_color');
+	
+	if ( $et_body_font <> '' || $et_body_font_color <> '' ) {
+		$et_body_font_id = strtolower( str_replace( '+', '_', $et_body_font ) );
+		$et_body_font_id = str_replace( ' ', '_', $et_body_font_id );
+		
+		if ( $et_body_font <> '' ) { 
+			$font_style .= "<link id='" . esc_attr($et_body_font_id) . "' href='" . esc_url( "http://fonts.googleapis.com/css?family=" . $et_body_font ) . "' rel='stylesheet' type='text/css' />";
+			$font_family = "font-family: '" . esc_html(str_replace( '+', ' ', $et_body_font )) . "', Arial, sans-serif !important; ";
+		}
+		
+		if ( $et_body_font_color <> '' ) {
+			$font_color_string = "color: #" . esc_html($et_body_font_color) . "; ";
+		}
+		
+		$font_style .= "<style type='text/css'>body { ". $font_family .  " }</style>";
+		$font_style .= "<style type='text/css'>body { ". esc_html($font_color_string) .  " }</style>";
+		
+		echo $font_style;
+	}
+} ?>
