@@ -1,46 +1,63 @@
 <?php
-global $options;
-foreach ($options as $value) {
-    if (get_settings( $value['id'] ) === FALSE) { $$value['id'] = $value['std']; }
-    else { $$value['id'] = get_settings( $value['id'] ); }
-    }
-?>
-<?php get_header() ?>
+/**
+ * The Template for displaying all single posts.
+ *
+ * @package WordPress
+ * @subpackage Twenty_Eleven
+ * @since Twenty Eleven 1.0
+ */
 
-	<div id="container">
-		<div id="content">
+get_header(); ?>
 
-<?php the_post(); ?>
-			<div id="nav-above" class="navigation">
-				<div class="nav-previous"><?php previous_post_link('%link', '<span class="meta-nav">&laquo;</span> %title') ?></div>
-				<div class="nav-next"><?php next_post_link('%link', '%title <span class="meta-nav">&raquo;</span>') ?></div>
-			</div>
+		<div id="primary">
+			<div id="content" role="main">
 
-<?php get_sidebar('single-top') ?>
+				<?php while ( have_posts() ) : the_post(); ?>
 
-			<div id="post-<?php the_ID(); ?>" class="<?php thematic_post_class(); ?>">
-    			<?php thematic_postheader(); ?>
-				<div class="entry-content">
-<?php the_content(''.__('Read More <span class="meta-nav">&raquo;</span>', 'thematic').''); ?>
+					<nav id="nav-single">
+						<h3 class="assistive-text"><?php _e( 'Post navigation', 'twentyeleven' ); ?></h3>
+						
+						<span class="nav-previous"><?php previous_post_link( '%link', __( '<span class="meta-nav">&larr;</span> Previous', 'twentyeleven' ) ); ?></span>
+						<span class="nav-next"><?php next_post_link( '%link', __( 'Next <span class="meta-nav">&rarr;</span>', 'twentyeleven' ) ); ?></span>
+					</nav><!-- #nav-single -->
 
-					<?php wp_link_pages('before=<div class="page-link">' .__('Pages:', 'thematic') . '&after=</div>') ?>
-				</div>
-				<?php thematic_postfooter(); ?>
-			</div><!-- .post -->
+					<?php get_template_part( 'content', 'single' ); 
+									
+						//check for metas and print
+						$androidurl=get_post_meta($post->ID, 'field_inputtext__1', true);
+						if($androidurl!='')
+						{
+						echo '<a href="'.get_post_meta($post->ID, 'field_inputtext__1', true).'">Android App URL</a>';
+						echo "<br>";
+						}			
+						$iosurl=get_post_meta($post->ID, 'field_inputtext__3', true);
+						if($iosurl!='')
+						{
+						echo '<a href="'.get_post_meta($post->ID, 'field_inputtext__3', true).'">iOS App URL</a>';
+						echo "<br>";
+						}
+						$weburl=get_post_meta($post->ID, 'field_inputtext__2', true);
+						if($weburl!='')
+						{
+						echo '<a href="'.get_post_meta($post->ID, 'field_inputtext__2', true).'">Web App URL</a>';
+						echo "<br>";
+						}			
+						//check if type is story
+					
+						$output=get_post_meta($post->ID, 'field_checkbox__1', true);
+						if (in_array("4", $output)) {
+						    echo "Type: Story";
+						}
+						
+						
 			
-<?php get_sidebar('single-insert') ?>
+											
+										?>
+					<?php comments_template( '', true ); ?>
 
-			<div id="nav-below" class="navigation">
-				<div class="nav-previous"><?php previous_post_link('%link', '<span class="meta-nav">&laquo;</span> %title') ?></div>
-				<div class="nav-next"><?php next_post_link('%link', '%title <span class="meta-nav">&raquo;</span>') ?></div>
-			</div>
+				<?php endwhile; // end of the loop. ?>
 
-<?php comments_template('', true); ?>
+			</div><!-- #content -->
+		</div><!-- #primary -->
 
-<?php get_sidebar('single-bottom') ?>
-
-		</div><!-- #content -->
-	</div><!-- #container -->
-
-<?php thematic_sidebar() ?>
-<?php get_footer() ?>
+<?php get_footer(); ?>
