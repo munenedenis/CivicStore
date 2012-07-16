@@ -1,4 +1,5 @@
 <?php 
+//require_once('ozh-admin-drop-down-menu/wp_ozh_adminmenu.php');
 add_action( 'after_setup_theme', 'et_setup_theme' );
 if ( ! function_exists( 'et_setup_theme' ) ){
 	function et_setup_theme(){
@@ -56,6 +57,15 @@ if ( ! function_exists( 'et_setup_theme' ) ){
 		add_filter( 'et_get_additional_color_scheme', 'et_remove_additional_stylesheet' );
 	}
 }
+
+function my_custom_login_logo() {
+    echo '<style type="text/css">
+        h1 a { background-image:url('.get_bloginfo('template_directory').'/images/logo.jpg ) !important; }
+        background-size:900px 800px;
+    </style>';
+}
+add_action('login_head', 'my_custom_login_logo');
+
 
 function et_register_main_menus() {
 	register_nav_menus(
@@ -412,6 +422,7 @@ function et_set_bg_properties(){
 	
 	if ( $bgcolor <> '' || $bgtexture_url <> '' || $bgimage_url <> '' ) echo $style;
 }
+
 
 function et_set_font_properties(){
 	$font_style = '';
