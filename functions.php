@@ -89,7 +89,7 @@ if ( !current_user_can( 'edit_users' ) ) {
 function wp_admin_dashboard_add_news_feed_widget() {
     global $wp_meta_boxes;
     // The new widget
-    wp_add_dashboard_widget( 'dashboard_new_feed', 'News of Your Choice', 'dashboard_my_feed_output' );
+    wp_add_dashboard_widget( 'dashboard_new_feed', 'Code4America Updates', 'dashboard_my_feed_output' );
 }
 add_action('wp_dashboard_setup', 'wp_admin_dashboard_add_news_feed_widget');
 function dashboard_my_feed_output() {
@@ -120,6 +120,24 @@ function list_active_dashboard_widgets() {
 add_action('wp_dashboard_setup', 'list_active_dashboard_widgets');
 
 */
+
+
+// disable default dashboard widgets
+function disable_default_dashboard_widgets() {
+
+	remove_meta_box('dashboard_right_now', 'dashboard', 'core');
+	remove_meta_box('dashboard_recent_comments', 'dashboard', 'core');
+	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');
+	remove_meta_box('dashboard_plugins', 'dashboard', 'core');
+
+	remove_meta_box('dashboard_quick_press', 'dashboard', 'core');
+	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');
+	remove_meta_box('dashboard_primary', 'dashboard', 'core');
+	remove_meta_box('dashboard_secondary', 'dashboard', 'core');
+}
+add_action('admin_menu', 'disable_default_dashboard_widgets');
+
+//default dashboard widgets disabled.
 
 
 function my_custom_login_logo() {
