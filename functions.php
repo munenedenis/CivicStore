@@ -55,8 +55,72 @@ if ( ! function_exists( 'et_setup_theme' ) ){
 		add_filter( 'wp_page_menu_args', 'et_add_home_link' );
 		
 		add_filter( 'et_get_additional_color_scheme', 'et_remove_additional_stylesheet' );
+	
 	}
 }
+
+//Editing the WordPress Dashboard Header (NOT WORKING YET)
+function wp_admin_dashboard_header_colour() {
+echo '<style type="text/css">#wphead{background:#000000;
+background-image: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#7684hg), to(#730fvk));
+}
+#wphead h1#site-heading a{color: #ggg;}
+#wphead h1#site-heading a:hover{color: #fff;}
+#wphead #wphead-info #user_info{color: #ggg;}
+#wphead #wphead-info #user_info a{color: #ggg;}
+#wphead #wphead-info #user_info a:hover{color: #fff;}
+</style>';
+}
+add_action('admin_head', 'wp_admin_dashboard_header_colour');
+
+//end of dashboard header customization
+
+// Removing the "Please Update Now" notice for non-admin users
+if ( !current_user_can( 'edit_users' ) ) {
+    add_action( 'init', create_function( '$a', "remove_action( 'init', 'wp_version_check' );" ), 2 );
+    add_filter( 'pre_option_update_core', create_function( '$a', "return null;" ) );
+    add_filter( 'pre_site_transient_update_core', create_function( '$a', "return null;" ) ); 
+}
+
+// end of function please update now
+
+
+// A news feed widget for your WordPress dashboard
+function wp_admin_dashboard_add_news_feed_widget() {
+    global $wp_meta_boxes;
+    // The new widget
+    wp_add_dashboard_widget( 'dashboard_new_feed', 'News of Your Choice', 'dashboard_my_feed_output' );
+}
+add_action('wp_dashboard_setup', 'wp_admin_dashboard_add_news_feed_widget');
+function dashboard_my_feed_output() {
+    echo '<div>';
+    wp_widget_rss_output(array(
+        'url' => 'http://codeforamerica.org/feed/',
+        'title' => 'Updates from Code4America',
+        'items' => 2,
+        'show_summary' => 1,
+        'show_author' => 0,
+        'show_date' => 1
+));
+echo "</div>";
+}
+
+// End of feed widget
+
+
+
+/*List of all Dashboard widgets within dashboard
+function list_active_dashboard_widgets() {
+    global $wp_meta_boxes;
+    foreach (array_keys($wp_meta_boxes['dashboard']['normal']['core']) as $name) {
+    echo '<div>' . $name . '</div>';
+    }
+}
+
+add_action('wp_dashboard_setup', 'list_active_dashboard_widgets');
+
+*/
+
 
 function my_custom_login_logo() {
     echo '<style type="text/css">
