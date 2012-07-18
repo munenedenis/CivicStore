@@ -191,7 +191,7 @@ body.single-project .flexslider { min-height: 485px; }
 
 /* FlexSlider Necessary Styles
 *********************************/ 
-.flexslider {width: 100%; margin: 0; padding: 0;}
+.flexslider {width: 100%; margin: 20px auto 20px; padding: 30px auto 30px;}
 .flexslider .slides > li {display: none;} /* Hide the slides before the JS is loaded. Avoids image jumping */
 img { max-width: 100%; height: auto; }
 .flexslider  img { display: block; }
