@@ -6,7 +6,7 @@
 	<div id="quote">
 		<h2><?php echo esc_html( et_get_option('flexible_quote_heading') ); ?></h2>
 		<p><?php echo esc_html( et_get_option('flexible_quote_text') ); ?></p>
-	</div> <!-- end #quote -->
+			</div> <!-- end #quote -->
 <?php } ?>
 
 <?php if ( 'on' == et_get_option('flexible_display_recentwork_section','on') ) { ?>

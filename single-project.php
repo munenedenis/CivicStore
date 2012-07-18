@@ -11,7 +11,7 @@
 		$height = apply_filters( 'et_single_project_height', 480 );
 		
 		if ( $media ){
-			echo '<div class="flexslider"><ul class="slides">';
+			echo '<div class="flexslider" style="overflow:hidden"><ul class="slides">';
 			foreach( (array) $media as $et_media ){
 				echo '<li class="slide">';
 				

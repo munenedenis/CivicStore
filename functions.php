@@ -75,6 +75,21 @@ add_action('admin_head', 'wp_admin_dashboard_header_colour');
 
 //end of dashboard header customization
 
+
+// custom dashboard widget for Civicstore
+function custom_dashboard_widget() {
+	echo "<p>Civicstore helps you to share your civic apps with the world, 
+	       Incase you get stuck on the way, click help on the 
+	       top right corner.</p>";
+}
+function add_custom_dashboard_widget() {
+	wp_add_dashboard_widget('custom_dashboard_widget', 'How to post apps on Civicstore.', 'custom_dashboard_widget');
+}
+add_action('wp_dashboard_setup', 'add_custom_dashboard_widget');
+//custom widget added
+
+
+
 // Removing the "Please Update Now" notice for non-admin users
 if ( !current_user_can( 'edit_users' ) ) {
     add_action( 'init', create_function( '$a', "remove_action( 'init', 'wp_version_check' );" ), 2 );
@@ -109,19 +124,6 @@ echo "</div>";
 
 
 
-/*List of all Dashboard widgets within dashboard
-function list_active_dashboard_widgets() {
-    global $wp_meta_boxes;
-    foreach (array_keys($wp_meta_boxes['dashboard']['normal']['core']) as $name) {
-    echo '<div>' . $name . '</div>';
-    }
-}
-
-add_action('wp_dashboard_setup', 'list_active_dashboard_widgets');
-
-*/
-
-
 // disable default dashboard widgets
 function disable_default_dashboard_widgets() {
 
@@ -138,6 +140,7 @@ function disable_default_dashboard_widgets() {
 add_action('admin_menu', 'disable_default_dashboard_widgets');
 
 //default dashboard widgets disabled.
+
 
 
 function my_custom_login_logo() {
@@ -354,7 +357,7 @@ function et_show_ajax_project(){
 		$media = get_post_meta( $post->ID, '_et_used_images', true );
 		echo '<div class="et_media">';
 			if ( $media ){
-				echo '<div class="flexslider"><ul class="slides">';
+				echo '<div class="flexslider" style="overflow:hidden;"><ul class="slides">';
 				foreach( (array) $media as $et_media ){
 					echo '<li class="slide">';
 					

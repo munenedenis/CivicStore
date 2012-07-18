@@ -1,17 +1,17 @@
 /*
 Theme Name: Civic Store
-Theme URI: http://www.elegantthemes.com/gallery/
+Theme URI: http://www.civicstore.com/
 Version: 1.0
-Description: 2 Column theme from Elegant Themes
-Author: Elegant Themes
-Author URI: http://www.elegantthemes.com
+Description: An app store theme
+Author: Code4Kenya	
+Author URI: http://www.code4kenya.org
 */
 
 /*------------------------------------------------*/
 /*-----------------[RESET]------------------------*/
 /*------------------------------------------------*/
 
-/* http://meyerweb.com/eric/tools/css/reset/ */
+
 /* v1.0 | 20080212 */
 
 html, body, div, span, applet, object, iframe,
@@ -100,7 +100,7 @@ img#about-image { float: left; margin: 3px 8px 8px 0px; }
 			#top-menu a:hover { color: #202020;}
 			#top-menu > ul > li.current-menu-item > a { font-weight: lighter; }
 	#phone { position: absolute; right: 0; top: -16px; font-style: italic; }	
-	#main-area { margin-bottom: 17px; background-color: #fff; -webkit-box-shadow: 0px 0 4px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0px 0 4px rgba(0, 0, 0, 0.1); box-shadow: 0px 0 4px rgba(0, 0, 0, 0.1); }	
+	#main-area { margin-bottom: 17px; background-color: #fff; -webkit-box-shadow: 0px 0 4px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0px 0 4px rgba(0, 0, 0, 0.1); box-shadow: 0px 0 4px rgba(0, 0, 0, 0.1);}	        	
 		#featured { margin-bottom:75px; position: relative; }
 			#left-arrow, #right-arrow { position: absolute; text-indent: -9999px; top: 50%; margin-top: -18px; width: 28px; height: 37px; display: block; }
 			#left-arrow { left: 65px; background:url(images/left-arrow.png) no-repeat; }
